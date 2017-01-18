@@ -1,0 +1,346 @@
+<h1 class="md-headline form-title">Index de sévérité de l'insomnie (ISI)</h1>
+<div layout="column" class="md-inline-form">
+    <div class="md-padding">
+        <div layout-wrap layout="row">
+            <md-card flex="80" class="padding-card">
+
+                <!-- Card 1/4 - Patient's identity -->
+                <div ng-if="isiCtrl.cardNumber == 1">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Identité du patient </span>
+                            <span class="md-subhead"> Pour chacune des questions, veuillez cocher celle qui correspond le plus fidèlement à votre sommeil au cours du dernier mois. </span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div class="card-content">
+                        <md-input-container>
+                            <label>Nom</label>
+                            <input required name="clientName" ng-model="isiCtrl.patientLastname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Prénom</label>
+                            <input required name="clientName" ng-model="isiCtrl.patientFirstname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Naissance</label>
+                            <md-datepicker required ng-model="isiCtrl.birthdayDate" name="birthdayDate"></md-datepicker>
+                        </md-input-container>
+                    </div>
+                </div>
+                <!-- End Card 1/4 -->
+
+                <!-- Card 2/4 - Patient's sleeping difficulty  -->
+                <div ng-if="isiCtrl.cardNumber == 2">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Difficulté du sommeil </span>
+                            <span class="md-subhead"> Pour les trois premières questions, veuillez estimer la sévérité de vos difficultés de sommeil. </span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <div class="card-content">
+                        <div class="card-title"> </div>
+                        <div layout="row">
+                            <div flex="40"></div>
+                            <div layout="row" flex="80">
+                                <div flex class="table-column" ng-repeat="answer in isiCtrl.sleepingDifficulties"> {{ answer.label }}</div>
+                            </div>
+
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Difficulté à s'endormir</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.sleepingDifficulty">
+                                <div flex class="table-radio-button" ng-repeat="answer in isiCtrl.sleepingDifficulties">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Difficulé à rester endormi(e)</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.stayingSleepDifficulty">
+                                <div flex class="table-radio-button" ng-repeat="answer in isiCtrl.sleepingDifficulties">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Difficultés à se réveiller le matin</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.wakeupProblem">
+                                <div flex class="table-radio-button" ng-repeat="answer in isiCtrl.sleepingDifficulties">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Card 2/4 -->
+
+                <!-- Card 3/4 - Patient's sleeping perturbation  -->
+                <div ng-if="isiCtrl.cardNumber == 3">
+                    <span class="md-title" flex="100"> A quel point êtes-vous satisfait(e) / insatisfait(e) de votre sommeil actuel ? </span>
+                    <div class="isi-table">
+                        <md-radio-group layout="column" ng-model="isiCtrl.sleepingSatisfaction">
+                            <md-radio-button class="md-primary" value="1">Très satisfait(e)</md-radio-button>
+                            <md-radio-button class="md-primary" value="2">Satisfait(e)</md-radio-button>
+                            <md-radio-button class="md-primary" value="3">Neutre</md-radio-button>
+                            <md-radio-button class="md-primary" value="4">Insatisfait(e)</md-radio-button>
+                            <md-radio-button class="md-primary" value="5">Très insatisfait(e)</md-radio-button>
+                        </md-radio-group>
+                    </div>
+
+                    <span class="md-title" flex="100"> A quel point êtes-vous inquiet(e) / préoccupé(e) à propos de vos difficultés de sommeil actuelles ?</span>
+                    <div class="isi-table">
+                        <md-radio-group layout="column" ng-model="isiCtrl.sleepingWorries">
+                            <md-radio-button class="md-primary" value="1">1</md-radio-button>
+                            <md-radio-button class="md-primary" value="2">2</md-radio-button>
+                            <md-radio-button class="md-primary" value="3">3</md-radio-button>
+                            <md-radio-button class="md-primary" value="4">4</md-radio-button>
+                        </md-radio-group>
+                    </div>
+
+                    <span class="md-title" flex="100"> De manière générale, comment évaluez-vous la qualité de votre sommeil ?</span>
+                    <div class="isi-table">
+                        <md-radio-group layout="column" ng-model="isiCtrl.sleepingQuality">
+                            <md-radio-button class="md-primary" value="1">Excellente </md-radio-button>
+                            <md-radio-button class="md-primary" value="2">Bonne </md-radio-button>
+                            <md-radio-button class="md-primary" value="3">Acceptable </md-radio-button>
+                            <md-radio-button class="md-primary" value="4">Pauvre </md-radio-button>
+                            <md-radio-button class="md-primary" value="5">Médiocre </md-radio-button>
+                        </md-radio-group>
+                    </div>
+
+                    <span class="md-title" flex="100"> Généralement, comment vous sentez-vous au lever le matin ?</span>
+                    <div class="isi-table">
+                        <md-radio-group layout="column" ng-model="isiCtrl.morningMood">
+                            <md-radio-button class="md-primary" value="1">Très reposé(e) </md-radio-button>
+                            <md-radio-button class="md-primary" value="2">Reposé(e) </md-radio-button>
+                            <md-radio-button class="md-primary" value="3">Moyen </md-radio-button>
+                            <md-radio-button class="md-primary" value="4">Très fatigué(e) </md-radio-button>
+                            <md-radio-button class="md-primary" value="5">Exténué(e) </md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <!-- End Card 3/4 -->
+
+                <!-- Card 4/4 - Patient's sleeping relation  -->
+                <div ng-if="isiCtrl.cardNumber == 4">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Visibilité de vos difficultés de sommeil </span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <div class="card-content">
+                        <div class="card-title"> </div>
+                        <div layout="row">
+                            <div flex="40"></div>
+                            <div layout="row" flex="80">
+                                <div flex class="table-column">Aucunement</div>
+                                <div flex class="table-column">Légèrement</div>
+                                <div flex class="table-column">Moyennement</div>
+                                <div flex class="table-column">Beaucoup</div>
+                                <div flex class="table-column">Extrêmement</div>
+                            </div>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Perturbation du fonctionnement quotidien</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.dailyPerturbation">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Détérioration de la qualité de vie</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.badLifeQuality">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Diminution de la qualité de vie</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.lifeQualityDecrease">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Fatigue durant la journée</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.dayTired">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Impact sur la concentration ou la mémoire</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.concentrationProblem">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Impact sur les relations interpersonnelles</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.persoRelationProblem">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Impact sur l'humeur du jour</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.moodProblem">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Impact sur les activités sociales ou de loisirs</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="isiCtrl.activityProblem">
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="1"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="2"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="3"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="4"></md-radio-button>
+                                </div>
+                                <div flex class="table-radio-button">
+                                    <md-radio-button class="md-primary" value="5"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Card 4/4 -->
+
+                <div layout="row" layout-align="start center">
+                    <md-progress-linear flex md-mode="determinate" value="{{(isiCtrl.cardNumber/4)*100}}"></md-progress-linear>
+                    <p flex="20" class="card-pagination">Page {{ isiCtrl.cardNumber }} sur 4</p>
+
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="isiCtrl.setPreviousCardNumber()" ng-if="isiCtrl.cardNumber > 1">Précédent</md-button>
+                        <md-button ng-click="isiCtrl.setNextCardNumber()" ng-if="isiCtrl.cardNumber < 4">Suivant</md-button>
+                        <md-button ng-click="" ng-if="isiCtrl.cardNumber == 4"> Valider </md-button>
+                    </md-card-actions>
+                </div>
+            </md-card>
+        </div>
+    </div>
+</div>
