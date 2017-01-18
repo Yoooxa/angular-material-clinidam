@@ -2,9 +2,15 @@
 
 (function(){
 
-class Edas21Component {
+class Edas21Component extends Card{
   constructor() {
-    this.message = 'Hello';
+    super();
+    this.inputsGroup = [
+      {label: "Pas du tout", value: 1},
+      {label: "Peu", value: 2},
+      {label: "Beaucoup", value: 3},
+      {label: "Totalement", value: 4},
+    ]
   }
 }
 
