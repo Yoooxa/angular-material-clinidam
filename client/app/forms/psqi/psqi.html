@@ -1,0 +1,354 @@
+<h1 class="md-headline form-title">Index de qualité du sommeil de Pittsburgh (PSQI)</h1>
+<div layout="column" class="md-inline-form">
+    <div class="md-padding">
+        <div layout-wrap layout="row">
+            <md-card flex="80" class="padding-card">
+
+                <!-- Card 1/5 - Patient's identity -->
+                <div ng-if="psqiCtrl.cardNumber == 1">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Identité du patient </span>
+                            <span class="md-subhead">	Les questions suivantes ont trait à vos habitudes de sommeil pendant le dernier mois seulement. Vos réponses doivent indiquer ce qui correspond aux expériences que vous avez eues pendant la majorité des jours et des nuits au cours du dernier mois. <b>Répondez à toutes les questions. </b> </span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div class="card-content">
+                        <md-input-container>
+                            <label>Nom</label>
+                            <input required name="clientName" ng-model="psqiCtrl.patientLastname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Prénom</label>
+                            <input required name="clientName" ng-model="psqiCtrl.patientFirstname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Naissance</label>
+                            <md-datepicker required ng-model="psqiCtrl.birthdayDate" name="birthdayDate"></md-datepicker>
+                        </md-input-container>
+                    </div>
+                </div>
+                <!-- End Card 1/5 - Patient's identity -->
+
+                <!-- Card 2/5 -->
+                <div ng-if="psqiCtrl.cardNumber == 2">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Temps de sommeil </span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div class="card-content">
+                        <div>Au cours du mois dernier, quand êtes-vous habituellement allé(e) vous coucher le soir ?</div>
+                        <md-input-container>
+                            <label>Heure coucher habituel</label>
+                            <input name="usualSleepingHour" ng-model="psqiCtrl.usualSleepingHour">
+                        </md-input-container>
+
+                        <div>Au cours du mois dernier, combien vous a-t-il habituellement fallu de temps (en minutes) pour vous endormir
+                            chaque soir ?</div>
+                        <md-input-container>
+                            <label>Temps en minutes</label>
+                            <input type="number" step="5" name="minutesBeforeSleep" ng-model="psqiCtrl.minutesBeforeSleep">
+                        </md-input-container>
+
+                        <div>Au cours du mois dernier, à quelle heure vous êtes vous habituellement réveillé le matin ?</div>
+                        <md-input-container>
+                            <label>Heure de réveil</label>
+                            <input name="usualWakeUpHour" ng-model="psqiCtrl.usualWakeUpHour">
+                        </md-input-container>
+
+                        <div>Au cours du mois dernier, combien d'heures de sommeil effectif avez-vous eues chaque nuit ? (Ce nombre peut
+                            être différent du nombre d'heures que vous avez passées au lit) ?</div>
+                        <md-input-container>
+                            <label>Nombre d'heures</label>
+                            <input type="number" name="effectiveSleep" ng-model="psqiCtrl.effectiveSleep">
+                        </md-input-container>
+                    </div>
+                </div>
+                <!-- End card 2/5 -->
+
+                <!-- Card 3/5 -->
+                <div ng-if="psqiCtrl.cardNumber == 3">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Troubles du sommeil </span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div class="card-content">
+                        <div class="card-title"> </div>
+                        <div layout="row">
+                            <div flex="40"></div>
+                            <div layout="row" flex="80">
+                                <div flex class="table-column" ng-repeat="answer in psqiCtrl.inputsGroup"> {{ answer.label }}</div>
+                            </div>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous eu des difficultés à vous endormir en moins de 30 minutes ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.sleepAfter30Minutes">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Vous êtes vous réveillé avant l'heure souhaitée ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.wakeUpBeforeEstimatedHour">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous dû vous lever pour aller aux toilettes ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.wakeUpToGoToToilet">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous eu des difficultés à respirer dans votre sommeil ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.breathingDifficultiesWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous toussé pendant la nuit ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.coughWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous eu trop froid pendant votre sommeil ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.coldWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Acez-vous eu trop chaud pendant votre sommeil ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.warmWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous fait des mauvais rêves ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.badDreamsWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question">
+                                <p>Avez-vous souffert de douleurs pendant votre sommeil ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.painWhileSleeping">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+                        <div layout="row" class="table-input">
+                            <div flex="40" class="form-question" style="margin-top: 7px">
+                                <p>Pour d'autres raisons ?</p>
+                            </div>
+                            <md-input-container flex>
+                                <label>Description</label>
+                                <input flex="80" ng-model="psqiCtrl.otherSleepTroubleReason">
+                            </md-input-container>
+                        </div>
+
+                        <div layout="row" class="table-input" ng-if="psqiCtrl.otherSleepTroubleReason && psqiCtrl.otherSleepTroubleReason != ''">
+                            <div flex="40" class="form-question">
+                                <p>A quelle fréquence avez-vous recontré ces problèmes ?</p>
+                            </div>
+                            <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.otherSleepTroubleReasonFrequency">
+                                <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                    <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                </div>
+                            </md-radio-group>
+                        </div>
+
+
+                        <div layout="row">
+                            <div flex="40" class="form-question" style="margin-top: 7px"> Au cours du mois dernier, comment évalueriez-vous globalement la qualité de votre sommeil ? </div>
+                            <md-radio-group layout="row" layout-align="center center" ng-model="psqiCtrl.lastMonthSleepingQuality">
+              <span>
+                Très mauvaise
+                <md-radio-button style="margin-left: 5px" class="md-primary" ng-repeat="answer in psqiCtrl.inputsGroup" value="{{ answer.value }}"></md-radio-button>
+                Très bonne
+              </span>
+                            </md-radio-group>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End card 3/5 -->
+
+                <!-- Card 4/5 Other questions -->
+                <div ng-if="psqiCtrl.cardNumber == 4">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Questions complémentaires </span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <div class="card-content">
+                        <div>Au cours du mois dernier, combien de fois avez-vous pris des médicaments (prescrits par votre médecin ou achetés
+                            sans ordonnance) pour faciliter votre sommeil ?</div>
+                        <md-radio-group layout="column" ng-model="psqiCtrl.medicineTakenToSleep">
+                            <md-radio-button ng-repeat="input in psqiCtrl.inputsGroup" value="{{input.value}}">{{input.label}}</md-radio-button>
+                        </md-radio-group>
+
+                        <div>Au cours du mois dernier, combien de fois avez-vous eu des difficultés à demeurer éveillé(e) pendant que vous
+                            conduisiez, preniez vos repas, étiez occupé(e) dans une activité sociale ?</div>
+                        <md-radio-group layout="column" ng-model="psqiCtrl.difficultiesToStayAwake">
+                            <md-radio-button ng-repeat="input in psqiCtrl.inputsGroup" value="{{input.value}}">{{input.label}}</md-radio-button>
+                        </md-radio-group>
+
+                        <div>Au cours du mois dernier, à quel degré cela a-t-il représenté un problème pour vous d'avoir assez d'enthousiasme
+                            pour faire ce que vous aviez à faire ?</div>
+                        <md-radio-group layout="column" ng-model="psqiCtrl.difficultiesToStayAwake">
+                            <md-radio-button value="1">Pas de problème du tout</md-radio-button>
+                            <md-radio-button value="2">Seulement un tout petit problème</md-radio-button>
+                            <md-radio-button value="3">Un certain problème</md-radio-button>
+                            <md-radio-button value="4">Un gros problème</md-radio-button>
+                        </md-radio-group>
+
+                    </div>
+                </div>
+                <!-- End card 4/5 -->
+
+                <!-- Card 5/5 -->
+                <div ng-if="psqiCtrl.cardNumber == 5">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Conjoint ou camarade de chambre </span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <div class="card-content">
+                        <div>Avez vous un conjoint ou un camarade de chambre ?</div>
+                        <md-radio-group layout="column" ng-model="psqiCtrl.hasRoomMate">
+                            <md-radio-button value="1">Ni l'un ni l'autre</md-radio-button>
+                            <md-radio-button value="2">Oui, mais dans une chambre différente</md-radio-button>
+                            <md-radio-button value="3">Oui, dans la même chambre mais pas dans le même lit</md-radio-button>
+                            <md-radio-button value="4">Oui, dans le même lit</md-radio-button>
+                        </md-radio-group>
+
+                        <div ng-if="psqiCtrl.hasRoomMate == 2 || psqiCtrl.hasRoomMate == 3 || psqiCtrl.hasRoomMate == 4">
+                            <div>Si vous avez un conjoint, demandez lui si au cours du dernier mois vous avez présenté ...</div>
+                            <div layout="row">
+                                <div flex="40"></div>
+                                <div layout="row" flex="80">
+                                    <div flex class="table-column" ng-repeat="answer in psqiCtrl.inputsGroup"> {{ answer.label }}</div>
+                                </div>
+
+                            </div>
+                            <div layout="row" class="table-input">
+                                <div flex="40" class="form-question">
+                                    <p> De forts ronflements</p>
+                                </div>
+                                <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.noisySnoring">
+                                    <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                        <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                    </div>
+                                </md-radio-group>
+                            </div>
+
+                            <div layout="row" class="table-input">
+                                <div flex="40" class="form-question">
+                                    <p> De longues pauses respiratoires pendant votre sommeil</p>
+                                </div>
+                                <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.breathingBreaks">
+                                    <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                        <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                    </div>
+                                </md-radio-group>
+                            </div>
+
+                            <div layout="row" class="table-input">
+                                <div flex="40" class="form-question">
+                                    <p> Des saccades ou des secousses des jambes pendant que vous dormiez</p>
+                                </div>
+                                <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.leggsShakeWhileSleeping">
+                                    <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                        <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                    </div>
+                                </md-radio-group>
+                            </div>
+
+                            <div layout="row" class="table-input">
+                                <div flex="40" class="form-question">
+                                    <p> Des épisodes de désorientation ou de confusion pendant le sommeil</p>
+                                </div>
+                                <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.periodsOfConfusion">
+                                    <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                        <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                    </div>
+                                </md-radio-group>
+                            </div>
+                            <div layout="row" class="table-input">
+                                <div flex="40" class="form-question">
+                                    <p> D'autres motifs d'agitation pendant votre sommeil</p>
+                                </div>
+                                <md-radio-group layout="row" flex="80" ng-model="psqiCtrl.otherAgitation">
+                                    <div flex class="table-radio-button" ng-repeat="answer in psqiCtrl.inputsGroup">
+                                        <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                                    </div>
+                                </md-radio-group>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End card 5/5 -->
+
+                <div layout="row" layout-align="start center">
+                    <md-progress-linear flex md-mode="determinate" value="{{(psqiCtrl.cardNumber/5)*100}}"></md-progress-linear>
+                    <p flex="20" class="card-pagination">Page {{ psqiCtrl.cardNumber }} sur 5</p>
+
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="psqiCtrl.setPreviousCardNumber()" ng-if="psqiCtrl.cardNumber > 1">Précédent</md-button>
+                        <md-button ng-click="psqiCtrl.setNextCardNumber()" ng-if="psqiCtrl.cardNumber < 5">Suivant</md-button>
+                        <md-button ng-click="" ng-if="psqiCtrl.cardNumber == 5"> Valider </md-button>
+                    </md-card-actions>
+                </div>
+            </md-card>
+        </div>
+    </div>
+</div>
