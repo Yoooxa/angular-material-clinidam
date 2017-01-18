@@ -1,0 +1,173 @@
+<h1 class="md-headline form-title"> Questionnaire DN4</h1>
+<button ng-click="dn4Ctrl.logDebug()">Debug</button>
+<div layout="column" class="md-inline-form">
+    <div class="md-padding">
+        <div layout-wrap layout="row">
+            <md-card flex="80" class="padding-card">
+
+                <!-- Card 1/4 - Patient's identity -->
+                <div ng-if="dn4Ctrl.cardNumber == 1">
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title"> Identité du patient </span>
+                            <span class="md-subhead">	Les questions suivantes ont trait à vos habitudes de sommeil pendant le dernier mois seulement. Vos réponses doivent indiquer ce qui correspond aux expériences que vous avez eues pendant la majorité des jours et des nuits au cours du dernier mois. <b>Répondez à toutes les questions. </b> </span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <div class="card-content">
+                        <md-input-container>
+                            <label>Nom</label>
+                            <input required name="clientName" ng-model="dn4Ctrl.patientLastname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Prénom</label>
+                            <input required name="clientName" ng-model="dn4Ctrl.patientFirstname">
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Naissance</label>
+                            <md-datepicker required ng-model="dn4Ctrl.birthdayDate" name="birthdayDate"></md-datepicker>
+                        </md-input-container>
+                    </div>
+                </div>
+                <!-- End Card 1/4 -->
+
+                <!-- Card 1/2 - Questionnaire DN4 -->
+                <div ng-if="dn4Ctrl.cardNumber == 2">
+                    <div layout="row">
+                        <div flex="40"></div>
+                        <div layout="row" flex="80">
+                            <div flex class="table-column" ng-repeat="answer in dn4Ctrl.answers"> {{ answer.label }}</div>
+                        </div>
+                    </div>
+
+                    <div class="md-title">La douleur présente-t-elle une ou plusieurs des caractéristiques suivantes ?</div>
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Brûlure</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasBurns">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Sensation de froid douloureux</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasPainCold">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Décharges électriques</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasElectricShock">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div class="md-title">La douleur est-elle associée dans la même région à un ou plusieurs des symptômes suivants ?</div>
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Fourmillements</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.swarming">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Picotements</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.tingling">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Engourdissements</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.numbness">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Démangeaisons</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.itching">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div class="md-title">La douleur est-elle localisée dans un territoire où l'examen met en évidence :</div>
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Hypoesthésie au tact</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.tactHypoesthesia">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p>Hypoesthésie à la piqûre</p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.stingHypoesthesia">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+
+                    <div class="md-title">La douleur est-elle provoquée ou augmentée par un frottement ?</div>
+                    <div layout="row" class="table-input">
+                        <div flex="40" class="form-question">
+                            <p></p>
+                        </div>
+                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.friction">
+                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                                <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
+                            </div>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <!-- End Card 2/2 -->
+
+                <div layout="row" layout-align="start center">
+                    <md-progress-linear flex md-mode="determinate" value="{{(dn4Ctrl.cardNumber/2)*100}}"></md-progress-linear>
+                    <p flex="20" class="card-pagination">Page {{ dn4Ctrl.cardNumber }} sur 2</p>
+
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="dn4Ctrl.setPreviousCardNumber()" ng-if="dn4Ctrl.cardNumber > 1">Précédent</md-button>
+                        <md-button ng-click="dn4Ctrl.setNextCardNumber()" ng-if="dn4Ctrl.cardNumber < 2">Suivant</md-button>
+                        <md-button ng-click="" ng-if="dn4Ctrl.cardNumber == 2"> Valider </md-button>
+                    </md-card-actions>
+                </div>
+            </md-card>
+        </div>
+    </div>
+</div>
