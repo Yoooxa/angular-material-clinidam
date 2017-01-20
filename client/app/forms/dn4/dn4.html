@@ -5,7 +5,7 @@
             <md-card flex="80" class="padding-card">
 
                 <!-- Card 1/4 - Patient's identity -->
-                <div ng-if="dn4Ctrl.cardNumber == 1">
+                <div ng-if="vm.cardNumber == 1">
                     <md-card-header>
                         <md-card-header-text>
                             <span class="md-title"> Identité du patient </span>
@@ -15,28 +15,28 @@
                     <div class="card-content">
                         <md-input-container>
                             <label>Nom</label>
-                            <input required name="clientName" ng-model="dn4Ctrl.patientLastname">
+                            <input required name="clientName" ng-model="vm.patientLastname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Prénom</label>
-                            <input required name="clientName" ng-model="dn4Ctrl.patientFirstname">
+                            <input required name="clientName" ng-model="vm.patientFirstname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Naissance</label>
-                            <md-datepicker required ng-model="dn4Ctrl.birthdayDate" name="birthdayDate"></md-datepicker>
+                            <md-datepicker required ng-model="vm.patientBirthday" name="birthdayDate"></md-datepicker>
                         </md-input-container>
                     </div>
                 </div>
                 <!-- End Card 1/4 -->
 
                 <!-- Card 1/2 - Questionnaire DN4 -->
-                <div ng-if="dn4Ctrl.cardNumber == 2">
+                <div ng-if="vm.cardNumber == 2">
                     <div layout="row">
                         <div flex="40"></div>
                         <div layout="row" flex="80">
-                            <div flex class="table-column" ng-repeat="answer in dn4Ctrl.answers"> {{ answer.label }}</div>
+                            <div flex class="table-column" ng-repeat="answer in vm.answers"> {{ answer.label }}</div>
                         </div>
                     </div>
 
@@ -45,8 +45,8 @@
                         <div flex="40" class="form-question">
                             <p>Brûlure</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasBurns">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.hasBurns">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -56,8 +56,8 @@
                         <div flex="40" class="form-question">
                             <p>Sensation de froid douloureux</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasPainCold">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.hasPainCold">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -67,8 +67,8 @@
                         <div flex="40" class="form-question">
                             <p>Décharges électriques</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.hasElectricShock">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.hasElectricShock">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -79,8 +79,8 @@
                         <div flex="40" class="form-question">
                             <p>Fourmillements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.swarming">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.swarming">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -90,8 +90,8 @@
                         <div flex="40" class="form-question">
                             <p>Picotements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.tingling">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.tingling">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -101,8 +101,8 @@
                         <div flex="40" class="form-question">
                             <p>Engourdissements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.numbness">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.numbness">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -112,8 +112,8 @@
                         <div flex="40" class="form-question">
                             <p>Démangeaisons</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.itching">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.itching">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -124,8 +124,8 @@
                         <div flex="40" class="form-question">
                             <p>Hypoesthésie au tact</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.tactHypoesthesia">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.tactHypoesthesia">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -135,8 +135,8 @@
                         <div flex="40" class="form-question">
                             <p>Hypoesthésie à la piqûre</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.stingHypoesthesia">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.stingHypoesthesia">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -147,8 +147,8 @@
                         <div flex="40" class="form-question">
                             <p></p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="dn4Ctrl.friction">
-                            <div flex class="table-radio-button" ng-repeat="answer in dn4Ctrl.answers">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.friction">
+                            <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
                         </md-radio-group>
@@ -157,13 +157,13 @@
                 <!-- End Card 2/2 -->
 
                 <div layout="row" layout-align="start center">
-                    <md-progress-linear flex md-mode="determinate" value="{{(dn4Ctrl.cardNumber/2)*100}}"></md-progress-linear>
-                    <p flex="20" class="card-pagination">Page {{ dn4Ctrl.cardNumber }} sur 2</p>
+                    <md-progress-linear flex md-mode="determinate" value="{{(vm.cardNumber/2)*100}}"></md-progress-linear>
+                    <p flex="20" class="card-pagination">Page {{ vm.cardNumber }} sur 2</p>
 
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="dn4Ctrl.setPreviousCardNumber()" ng-if="dn4Ctrl.cardNumber > 1">Précédent</md-button>
-                        <md-button ng-click="dn4Ctrl.setNextCardNumber()" ng-if="dn4Ctrl.cardNumber < 2">Suivant</md-button>
-                        <md-button ng-click="" ng-if="dn4Ctrl.cardNumber == 2"> Valider </md-button>
+                        <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
+                        <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 2">Suivant</md-button>
+                        <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 2"> Voir PDF </md-button>
                     </md-card-actions>
                 </div>
             </md-card>
