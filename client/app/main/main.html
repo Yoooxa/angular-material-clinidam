@@ -9,7 +9,10 @@
 
             <!-- With submenu -->
             <md-menu md-position-mode="target-left target" md-offset="0 75" ng-if="item.hassubmenu">
-              <span class="md-headline activator" ng-click="$mdOpenMenu($event)"> {{item.title}} </span>
+              <span class="md-headline activator" ng-click="$mdOpenMenu($event)">
+                {{item.title}}
+                <span class="caret"></span>
+              </span>
               <md-menu-content width="4">
                 <md-menu-item ng-repeat="sub in item.submenu">
                   <md-button ui-sref="{{sub.sref}}">
