@@ -5,6 +5,10 @@
 class Dn4Component extends Card{
     constructor() {
         super();
+        this.answers = [
+            {label: "Oui", value: 1},
+            {label: "Non", value: 0}
+        ]
     }
 }
 
