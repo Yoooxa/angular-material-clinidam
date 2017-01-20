@@ -13,7 +13,9 @@ function Menu() {
         title: "Fiche clinique dépistage systématique",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: true,
+        isVisibleByUser: true
     };
 
     self.links['complex-sheet'] = {
@@ -21,7 +23,9 @@ function Menu() {
         title: "Fiche clinique complète",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: false,
+        isVisibleByUser: true
     };
 
     self.links['dn4-form'] = {
@@ -59,7 +63,9 @@ function Menu() {
             self.links['psqi-form'],
             self.links['edas21-form']
         ],
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: true,
+        isVisibleByUser: true
     };
 
     self.links['stats'] = {
@@ -67,7 +73,9 @@ function Menu() {
         title: "Statistiques",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: false,
+        isVisibleByUser: true
     };
 
     self.links['patient-sheets'] = {
@@ -75,7 +83,9 @@ function Menu() {
         title: "Fiches des patients",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: false,
+        isVisibleByUser: true
     };
 
     self.links['admin-panel'] = {
@@ -83,7 +93,19 @@ function Menu() {
         title: "Administration",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
-        blockedRoles: []
+        blockedRoles: [],
+        isVisibleByGuest: false,
+        isVisibleByUser: false
+    };
+
+    self.links['contact-us'] = {
+        sref: "contact",
+        title: "Contact",
+        picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
+        hassubmenu: false,
+        blockedRoles: [],
+        isVisibleByGuest: true,
+        isVisibleByUser: true
     };
 
     self.menu = {};
@@ -93,7 +115,8 @@ function Menu() {
         self.links['annex-forms'],
         self.links['stats'],
         self.links['patient-sheets'],
-        self.links['admin-panel']
+        self.links['admin-panel'],
+        self.links['contact-us']
 
     ];
 
