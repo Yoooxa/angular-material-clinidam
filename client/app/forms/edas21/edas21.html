@@ -5,7 +5,7 @@
             <md-card flex="80" class="padding-card">
 
                 <!-- Card 1/2 - Patient's identity -->
-                <div ng-if="edas21Ctrl.cardNumber == 1">
+                <div ng-if="vm.cardNumber == 1">
                     <div>
                         <md-card-header>
                             <md-card-header-text>
@@ -20,17 +20,17 @@
                         <div class="card-content">
                             <md-input-container>
                                 <label>Nom</label>
-                                <input required name="clientName" ng-model="edas21Ctrl.patientLastname">
+                                <input required name="clientName" ng-model="vm.patientLastname">
                             </md-input-container>
 
                             <md-input-container>
                                 <label>Prénom</label>
-                                <input required name="clientName" ng-model="edas21Ctrl.patientFirstname">
+                                <input required name="clientName" ng-model="vm.patientFirstname">
                             </md-input-container>
 
                             <md-input-container>
                                 <label>Naissance</label>
-                                <md-datepicker required ng-model="edas21Ctrl.birthdayDate" name="birthdayDate"></md-datepicker>
+                                <md-datepicker required ng-model="vm.birthdayDate" name="birthdayDate"></md-datepicker>
                             </md-input-container>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                 <!-- End Card 1/2 -->
 
                 <!-- Card 2/2 - Patient's depression  -->
-                <div ng-if="edas21Ctrl.cardNumber == 2">
+                <div ng-if="vm.cardNumber == 2">
                     <md-card-header>
                         <md-card-header-text>
                             <span class="md-title"> Questionnaire </span>
@@ -50,15 +50,15 @@
                         <div layout="row">
                             <div flex="40"></div>
                             <div layout="row" flex="80">
-                                <div flex class="table-column" ng-repeat="answer in edas21Ctrl.inputsGroup"> {{ answer.label }}</div>
+                                <div flex class="table-column" ng-repeat="answer in vm.inputsGroup"> {{ answer.label }}</div>
                             </div>
                         </div>
                         <div layout="row" class="table-input">
                             <div flex="40" class="form-question">
                                 <p>J'ai trouvé difficile de décompresser</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.decompressProblem">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.decompressProblem">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -67,8 +67,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai été conscient(e) d'avoir la bouche sèche</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.mouthProblem">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.mouthProblem">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -77,8 +77,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu l'impression de ne pas pouvoir ressentir d'émotion positive</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.noPositiveMood">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.noPositiveMood">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -88,8 +88,8 @@
                                 <p>J'ai eu de la difficulté à respirer (par exemple, respirations excessivement rapides,
                                     essoufflement sans effort physique)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.hardBreath">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.hardBreath">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -98,18 +98,18 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu de la difficulté à initier de nouvelles activités</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.hardNewActivities">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.hardNewActivities">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
                         </div>
                         <div layout="row" class="table-input">
                             <div flex="40" class="form-question">
-                                <p>J'ai eu tendane à réagir de façon exagérée</p>
+                                <p>J'ai eu tendance à réagir de façon exagérée</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.reactExaggeratedly">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.reactExaggeratedly">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -118,8 +118,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu des tremblements (par exemple, des mains)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.tremblingProblem">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.tremblingProblem">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -128,8 +128,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu l'impression de dépenser beaucoup d'énergie nerveuse</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.spendBadEnergy">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.spendBadEnergy">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -139,8 +139,8 @@
                                 <p>Je me suis inquiété(e) en pensant à des situations où je pourrais paniquer et faire de
                                     moi un(e) idiot(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.situationsWorry">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.situationsWorry">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -149,18 +149,40 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu le sentiment de ne rien envisager avec plaisir</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.noPleasure">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.noPleasure">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
                         </div>
+
+                    </div>
+                </div>
+              <!-- End Card 2/3 -->
+
+              <!-- Card 3/3 - Patient's depression  -->
+              <div ng-if="vm.cardNumber == 3">
+                <md-card-header>
+                  <md-card-header-text>
+                    <span class="md-title"> Questionnaire </span>
+                  </md-card-header-text>
+                </md-card-header>
+
+                <div class="card-content">
+                  <div class="card-title"> </div>
+                  <div layout="row">
+                    <div flex="40"></div>
+                    <div layout="row" flex="80">
+                      <div flex class="table-column" ng-repeat="answer in vm.inputsGroup"> {{ answer.label }}</div>
+                    </div>
+                  </div>
+
                         <div layout="row" class="table-input">
                             <div flex="40" class="form-question">
                                 <p>Je me suis aperçu(e) que je devenais agité(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beAgitated">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beAgitated">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -169,8 +191,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu de la difficulté à me détendre</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.loosenProblem">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.loosenProblem">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -179,8 +201,8 @@
                             <div flex="40" class="form-question">
                                 <p>Je me suis senti(e) triste et déprimé(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beSad">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beSad">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -190,8 +212,8 @@
                                 <p>Je me suis aperçu(e) que je devenais impatient(e) lorsque j'étais retardé(e) de quelque
                                     façon que ce soit (par exemple, dans les ascenseurs, aux feux de circulation...)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beLate">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beLate">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -200,8 +222,8 @@
                             <div flex="40" class="form-question">
                                 <p> J'ai eu le sentiment d'être presque pris(e) de panique</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.bePanicked">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.bePanicked">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -210,8 +232,8 @@
                             <div flex="40" class="form-question">
                                 <p> J'ai été incapable de me sentir enthousiaste au sujet de quoi que ce soit</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beEnthusiastic">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beEnthusiastic">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -220,8 +242,8 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu le sentiment de ne pas valoir grand chose comme personne</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beNothing">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beNothing">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -230,8 +252,8 @@
                             <div flex="40" class="form-question">
                                 <p>Je me suis aperçu(e) que j’étais très irritable</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beIrritable">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beIrritable">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -241,8 +263,8 @@
                                 <p>J’ai été conscient(e) des palpitations de mon coeur en l’absence d’effort physique (sensation
                                     d’augmentation de mon rythme cardiaque ou l’impression que mon cœur venait de sauter)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.heartPalpitations">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.heartPalpitations">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -251,8 +273,8 @@
                             <div flex="40" class="form-question">
                                 <p>J’ai eu peur sans bonne raison</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.beScared">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.beScared">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -261,8 +283,8 @@
                             <div flex="40" class="form-question">
                                 <p>J’ai eu l’impression que la vie n’avait pas de sens</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="edas21Ctrl.lifeNoSens">
-                                <div flex class="table-radio-button" ng-repeat="answer in edas21Ctrl.inputsGroup">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.lifeNoSense">
+                                <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
                             </md-radio-group>
@@ -272,13 +294,13 @@
                 <!-- End Card 2/2 -->
 
                 <div layout="row" layout-align="start center">
-                    <md-progress-linear flex md-mode="determinate" value="{{(edas21Ctrl.cardNumber/2)*100}}"></md-progress-linear>
-                    <p flex="20" class="card-pagination">Page {{ edas21Ctrl.cardNumber }} sur 2</p>
+                    <md-progress-linear flex md-mode="determinate" value="{{(vm.cardNumber/3)*100}}"></md-progress-linear>
+                    <p flex="20" class="card-pagination">Page {{ vm.cardNumber }} sur 3</p>
 
                     <md-card-actions layout="row" layout-align="end center">
-                        <md-button ng-click="edas21Ctrl.setPreviousCardNumber()" ng-if="edas21Ctrl.cardNumber > 1">Précédent</md-button>
-                        <md-button ng-click="edas21Ctrl.setNextCardNumber()" ng-if="edas21Ctrl.cardNumber < 2">Suivant</md-button>
-                        <md-button ng-click="" ng-if="edas21Ctrl.cardNumber == 2"> Valider </md-button>
+                        <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
+                        <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 3">Suivant</md-button>
+                        <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 3"> Voir PDF </md-button>
                     </md-card-actions>
                 </div>
             </md-card>
