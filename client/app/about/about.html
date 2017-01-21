@@ -1,1 +1,31 @@
-<div>This is the about view.</div>
+<div id="about-background" ng-control layout="column" class="md-inline-form">
+    <div class="md-padding" layout-wrap layout="row">
+        <div flex="50">
+            <img src="../assets/images/about-us.jpg">
+        </div>
+        <div flex="45" id="contact-text">   
+            <h1 class="md-headline form-title" id="contact-title">{{ 'qui sommes nous ?' | uppercase }} 
+                <img src="../assets/images/whoweare.png" >
+            </h1>
+            <p>
+                Nous sommes des chirurgiens dentistes exerçant une activité omnipratique hospitalo-universitaire et libérale.
+                <br>Ce site est gratuit à but non lucratif. 
+                Il a été réalisé par l'aide d'une bourse du Collège National d'Occlusodontologie en 2017.
+            </p>
+            <hr id="contact-hr">
+            <h1 class="md-headline form-title" id="contact-title">{{ 'notre équipe' | uppercase }} 
+                <img src="../assets/images/team.png"> 
+            </h1>
+            <p>
+                Bernard Fleiter<br>
+                Nicolas Fougeront<br>
+                Emmanuel d’Incau<br>
+                Clotilde Carra<br>
+                Cyril Schumacher<br>
+                Justine Leclere<br>
+                Philippe Bachour<br>
+                Gauthier Cazals<br>
+            </p>
+        </div>
+    </div>
+</div>
