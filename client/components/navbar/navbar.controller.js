@@ -1,19 +1,15 @@
 'use strict';
 
 class NavbarController {
-  //start-non-standard
-  menu = [{
-    'title': 'Home',
-    'state': 'main'
-  }];
 
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth) {
+  constructor(Auth, Menu) {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
+    this.menu = Menu.get('Main');
   }
 
 }

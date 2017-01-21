@@ -10,7 +10,7 @@ function Menu() {
 
     self.links['simple-sheet'] = {
         sref: "simple-sheet",
-        title: "Fiche clinique dépistage systématique",
+        title: "Fiche clinique simple",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
         blockedRoles: [],
@@ -20,7 +20,7 @@ function Menu() {
 
     self.links['complex-sheet'] = {
         sref: "complex-sheet",
-        title: "Fiche clinique complète",
+        title: "Fiche clinique complexe",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
         blockedRoles: [],
@@ -54,7 +54,7 @@ function Menu() {
 
     self.links['annex-forms'] = {
         sref: "annex-forms",
-        title: "Fiches annexes de la fiche clinique",
+        title: "Fiches annexes",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: true,
         submenu: [
@@ -80,7 +80,7 @@ function Menu() {
 
     self.links['patient-sheets'] = {
         sref: "patient-sheets",
-        title: "Fiches des patients",
+        title: "Fiches patients",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
         blockedRoles: [],
@@ -89,7 +89,7 @@ function Menu() {
     };
 
     self.links['admin-panel'] = {
-        sref: "admin-panel",
+        sref: "admin",
         title: "Administration",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
         hassubmenu: false,
