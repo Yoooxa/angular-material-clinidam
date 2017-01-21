@@ -16,7 +16,7 @@
     "angular-socket-io": "~0.7.0",
     "angular-ui-router": "~0.3.2",
     "angular-validation-match": "~1.5.2",
-    "angular-material": "^1.1.1",
+    "angular-material": "1.1.0",
     "pdfmake": "^0.1.24"
   },
   "devDependencies": {
