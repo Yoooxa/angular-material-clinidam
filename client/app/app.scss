@@ -18,6 +18,24 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   cursor: pointer;
 }
 
+.navbar > .container .navbar-brand {
+  margin-left: -60px;
+}
+
+.nav > li > span {
+  position: relative;
+  display: block;
+  padding-top : 15px;
+
+  a {
+    color: #777;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 // Component styles are injected through grunt
 /* inject:scss */
 @import 'about/about.scss';

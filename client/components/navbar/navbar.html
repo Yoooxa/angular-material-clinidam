@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+<div class="navbar navbar-default navbar-static-top">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
@@ -7,14 +7,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">angular-material-clinidam</a>
+      <a href="/" class="navbar-brand">CliniDAM</a>
     </div>
     <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
+        <li ng-repeat="item in nav.menu" ng-show="!nav.isLoggedIn() && item.isVisibleByGuest || nav.isLoggedIn() && !nav.isAdmin() && item.isVisibleByUser || nav.isLoggedIn() &&nav.isAdmin()" ui-sref-active="active">
+          <!-- Without submenu -->
+          <a ui-sref="{{item.sref}}" ng-hide="item.hassubmenu"> {{item.title}} </a>
+
+          <!-- With submenu -->
+          <span uib-dropdown on-toggle="toggled(open)" ng-if="item.hassubmenu">
+            <a href id="{{item.sref}}-dropdown" uib-dropdown-toggle>
+              {{item.title}}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="{{item.sref}}-dropdown">
+              <li ng-repeat="submenu in item.submenu">
+                <a ui-sref="{{submenu.sref}}">{{submenu.title}}</a>
+              </li>
+            </ul>
+          </span>
         </li>
-        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
