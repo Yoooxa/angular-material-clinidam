@@ -3,7 +3,7 @@
 angular.module('angularMaterialClinidamApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('whyWebsite', {
+      .state('why-website', {
         url: '/why-website',
         template: '<why-website></why-website>'
       });
