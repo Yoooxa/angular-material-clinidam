@@ -98,7 +98,7 @@ function Menu() {
         isVisibleByUser: false
     };
 
-    self.links['contact-us'] = {
+    self.links['contact'] = {
         sref: "contact",
         title: "Contact",
         picture: "http://byrushan.com/projects/ma/1-6-1/jquery/light/img/headers/sm/2.png",
@@ -116,7 +116,7 @@ function Menu() {
         self.links['stats'],
         self.links['patient-sheets'],
         self.links['admin-panel'],
-        self.links['contact-us']
+        self.links['contact']
 
     ];
 
