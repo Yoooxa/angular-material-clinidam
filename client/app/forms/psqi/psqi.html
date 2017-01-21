@@ -204,7 +204,10 @@
                             <md-radio-group layout="row" layout-align="center center" ng-model="vm.lastMonthSleepingQuality">
               <span>
                 Très mauvaise
-                <md-radio-button style="margin-left: 5px" class="md-primary" ng-repeat="answer in vm.inputsGroup" value="{{ answer.value }}"></md-radio-button>
+                <md-radio-button style="margin-left: 5px" class="md-primary" value="1"></md-radio-button>
+                <md-radio-button style="margin-left: 5px" class="md-primary" value="2"></md-radio-button>
+                <md-radio-button style="margin-left: 5px" class="md-primary" value="3"></md-radio-button>
+                <md-radio-button style="margin-left: 5px" class="md-primary" value="4"></md-radio-button>
                 Très bonne
               </span>
                             </md-radio-group>
@@ -237,11 +240,11 @@
 
                         <div>Au cours du mois dernier, à quel degré cela a-t-il représenté un problème pour vous d'avoir assez d'enthousiasme
                             pour faire ce que vous aviez à faire ?</div>
-                        <md-radio-group layout="column" ng-model="vm.difficultiesToStayAwake">
-                            <md-radio-button value="1">Pas de problème du tout</md-radio-button>
-                            <md-radio-button value="2">Seulement un tout petit problème</md-radio-button>
-                            <md-radio-button value="3">Un certain problème</md-radio-button>
-                            <md-radio-button value="4">Un gros problème</md-radio-button>
+                        <md-radio-group layout="column" ng-model="vm.enthusiasmProblem">
+                            <md-radio-button value="Pas de problème">Pas de problème du tout</md-radio-button>
+                            <md-radio-button value="Problème léger">Seulement un tout petit problème</md-radio-button>
+                            <md-radio-button value="Problème certain">Un certain problème</md-radio-button>
+                            <md-radio-button value="Gros problème">Un gros problème</md-radio-button>
                         </md-radio-group>
 
                     </div>
@@ -259,13 +262,13 @@
                     <div class="card-content">
                         <div>Avez vous un conjoint ou un camarade de chambre ?</div>
                         <md-radio-group layout="column" ng-model="vm.hasRoomMate">
-                            <md-radio-button value="1">Ni l'un ni l'autre</md-radio-button>
-                            <md-radio-button value="2">Oui, mais dans une chambre différente</md-radio-button>
-                            <md-radio-button value="3">Oui, dans la même chambre mais pas dans le même lit</md-radio-button>
-                            <md-radio-button value="4">Oui, dans le même lit</md-radio-button>
+                            <md-radio-button value="NON">Ni l'un ni l'autre</md-radio-button>
+                            <md-radio-button value="OUI + CHAMBRE DIFFERENTE">Oui, mais dans une chambre différente</md-radio-button>
+                            <md-radio-button value="OUI + LIT DIFFERENT">Oui, dans la même chambre mais pas dans le même lit</md-radio-button>
+                            <md-radio-button value="OUI + MEME LIT">Oui, dans le même lit</md-radio-button>
                         </md-radio-group>
 
-                        <div ng-if="vm.hasRoomMate == 2 || vm.hasRoomMate == 3 || vm.hasRoomMate == 4">
+                        <div ng-if="vm.hasRoomMate && vm.hasRoomMate != 'NON' ">
                             <div>Si vous avez un conjoint, demandez lui si au cours du dernier mois vous avez présenté ...</div>
                             <div layout="row">
                                 <div flex="40"></div>
@@ -339,7 +342,7 @@
                     <md-card-actions layout="row" layout-align="end center">
                         <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
                         <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 5">Suivant</md-button>
-                        <md-button ng-click="" ng-if="vm.cardNumber == 5"> Valider </md-button>
+                        <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 5"> Voir PDF </md-button>
                     </md-card-actions>
                 </div>
             </md-card>
