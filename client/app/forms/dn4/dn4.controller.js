@@ -2,13 +2,21 @@
 
 (function(){
 
-class Dn4Component extends Card{
+class Dn4Component{
     constructor() {
-        super();
         this.answers = [
             {label: "Oui", value: 'OUI'},
             {label: "Non", value: 'NON'}
         ];
+        this.cardNumber = 1;
+    }
+
+    setPreviousCardNumber() {
+        this.cardNumber --;
+    }
+
+    setNextCardNumber() {
+        this.cardNumber ++;
     }
 
     isFilledIn(field) {

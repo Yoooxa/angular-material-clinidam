@@ -2,16 +2,23 @@
 
 (function(){
 
-class PsqiComponent extends Card{
+class PsqiComponent{
   constructor() {
-    super();
-
     this.inputsGroup = [
       {label: "Pas au cours du dernier mois", value: "Pas au cours du dernier mois"},
       {label: "Moins d'une fois par semaine", value: "Moins d'une fois par semaine"},
       {label: "1 à 2 fois par semaine", value: "1 à 2 fois par semaine"},
       {label: "3 ou 4 fois par semaine", value: "3 ou 4 fois par semaine"}
     ];
+    this.cardNumber = 1;
+  }
+
+  setPreviousCardNumber() {
+      this.cardNumber --;
+  }
+
+  setNextCardNumber() {
+      this.cardNumber ++;
   }
 
   getTwoDigitsHour(date) {
