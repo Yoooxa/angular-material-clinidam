@@ -59,6 +59,8 @@ class PsqiComponent{
     var date = new Date();
     var today = date.toLocaleDateString();
 
+    var isFilledIn = this.isFilledIn;
+
     var docDefinition =  {
         header:'Formulaire PSQI - ' + today,
 
@@ -69,8 +71,8 @@ class PsqiComponent{
             text: '____________________________________________________________________'
           },
 
-          'Nom : ' + this.isFilledIn(this.patientLastname),
-          'Prénom : ' + this.isFilledIn(this.patientFirstname),
+          'Nom : ' + isFilledIn(this.patientLastname),
+          'Prénom : ' + isFilledIn(this.patientFirstname),
 
           { text: 'Temps de sommeil', style: 'header' },
           {
@@ -78,10 +80,10 @@ class PsqiComponent{
             text: '____________________________________________________________________'
           },
 
-          'Heure de coucher habituelle au cours du mois dernier : ' + this.isFilledIn(this.getFormattedTime(this.usualSleepingHour)),
-          'Minutes  avant de s\'endormir le soir au cours du mois dernier : ' + this.isFilledIn(this.minutesBeforeSleep),
-          'Heure de réveil habituelle au cours du mois dernier : ' + this.isFilledIn(this.getFormattedTime(this.usualWakeUpHour)),
-          'Nombre d\'heures de sommeil effectif par nuit au cours du mois dernier : ' + this.isFilledIn(this.effectiveSleep),
+          'Heure de coucher habituelle au cours du mois dernier : ' + isFilledIn(this.getFormattedTime(this.usualSleepingHour)),
+          'Minutes  avant de s\'endormir le soir au cours du mois dernier : ' + isFilledIn(this.minutesBeforeSleep),
+          'Heure de réveil habituelle au cours du mois dernier : ' + isFilledIn(this.getFormattedTime(this.usualWakeUpHour)),
+          'Nombre d\'heures de sommeil effectif par nuit au cours du mois dernier : ' + isFilledIn(this.effectiveSleep),
 
           { text: 'Troubles du sommeil au cours du mois dernier', style: 'header' },
           {
@@ -89,18 +91,18 @@ class PsqiComponent{
             text: '____________________________________________________________________'
           },
 
-          'Difficultés à s\endormir en moins de 30 minutes : ' + this.isFilledIn(this.sleepAfter30Minutes),
-          'Réveil avant l\'heure souhaitée : ' + this.isFilledIn(this.wakeUpBeforeEstimatedHour),
-          'Réveil pour aller aux toilettes : ' + this.isFilledIn(this.wakeUpToGoToToilet),
-          'Difficultés respiratoires durant le sommeil : ' + this.isFilledIn(this.breathingDifficultiesWhileSleeping),
-          'Toux pendant la nuit : ' + this.isFilledIn(this.coughWhileSleeping),
-          'Trop froid pendant le sommeil : ' + this.isFilledIn(this.coldWhileSleeping),
-          'Trop chaud pendant le sommeil : ' + this.isFilledIn(this.warmWhileSleeping),
-          'Mauvais rêves : ' + this.isFilledIn(this.badDreamsWhileSleeping),
-          'Douleurs pendant le sommeil : ' + this.isFilledIn(this.painWhileSleeping),
-          'Autres troubles : ' + this.isFilledIn(this.otherSleepTroubleReason),
-          'Si autres troubles, fréquence d\apparition au cours du moins dernier : ' + this.isFilledIn(this.otherSleepTroubleReasonFrequency),
-          'Évaluation de la qualité du sommeil du mois dernier (1-4): ' + this.isFilledIn(this.lastMonthSleepingQuality),
+          'Difficultés à s\endormir en moins de 30 minutes : ' + isFilledIn(this.sleepAfter30Minutes),
+          'Réveil avant l\'heure souhaitée : ' + isFilledIn(this.wakeUpBeforeEstimatedHour),
+          'Réveil pour aller aux toilettes : ' + isFilledIn(this.wakeUpToGoToToilet),
+          'Difficultés respiratoires durant le sommeil : ' + isFilledIn(this.breathingDifficultiesWhileSleeping),
+          'Toux pendant la nuit : ' + isFilledIn(this.coughWhileSleeping),
+          'Trop froid pendant le sommeil : ' + isFilledIn(this.coldWhileSleeping),
+          'Trop chaud pendant le sommeil : ' + isFilledIn(this.warmWhileSleeping),
+          'Mauvais rêves : ' + isFilledIn(this.badDreamsWhileSleeping),
+          'Douleurs pendant le sommeil : ' + isFilledIn(this.painWhileSleeping),
+          'Autres troubles : ' + isFilledIn(this.otherSleepTroubleReason),
+          'Si autres troubles, fréquence d\apparition au cours du moins dernier : ' + isFilledIn(this.otherSleepTroubleReasonFrequency),
+          'Évaluation de la qualité du sommeil du mois dernier (1-4): ' + isFilledIn(this.lastMonthSleepingQuality),
 
           { text: 'Questions complémentaires ', style: 'header' },
           {
@@ -108,9 +110,9 @@ class PsqiComponent{
             text: '____________________________________________________________________'
           },
 
-          'Achat(s) de médicaments pour faciliter le sommeil au cours du dernier mois : ' + this.isFilledIn(this.medicineTakenToSleep),
-          'Difficultés à rester éveiller pendant conduite, repas, ou autre au cours du dernier mois : ' + this.isFilledIn(this.difficultiesToStayAwake),
-          'Degré auquel cela a représenté un problème pour avoir assez d\'enthousiasme : ' + this.isFilledIn(this.enthusiasmProblem),
+          'Achat(s) de médicaments pour faciliter le sommeil au cours du dernier mois : ' + isFilledIn(this.medicineTakenToSleep),
+          'Difficultés à rester éveiller pendant conduite, repas, ou autre au cours du dernier mois : ' + isFilledIn(this.difficultiesToStayAwake),
+          'Degré auquel cela a représenté un problème pour avoir assez d\'enthousiasme : ' + isFilledIn(this.enthusiasmProblem),
 
           { text: 'Conjoint ou camarade de chambre ', style: 'header' },
           {
@@ -118,7 +120,7 @@ class PsqiComponent{
             text: '____________________________________________________________________'
           },
 
-          'Conjoint(e) ou un(e) camarade de chambre : ' + this.isFilledIn(this.hasRoomMate),
+          'Conjoint(e) ou un(e) camarade de chambre : ' + isFilledIn(this.hasRoomMate),
 
 
         ],
@@ -148,11 +150,11 @@ class PsqiComponent{
           style: 'border',
           text: '____________________________________________________________________'
         },
-        'Forts ronflements : ' + this.isFilledIn(this.noisySnoring),
-        'Longues pauses repsiratoires pendant le sommeil : ' + this.isFilledIn(this.breathingBreaks),
-        'Saccades ou secousses des jambes pendant le sommeil : ' + this.isFilledIn(this.leggsShakeWhileSleeping),
-        'Épisodes de désorientation/ confusion pendant sommeil : ' + this.isFilledIn(this.periodsOfConfusion),
-        'Autre(s) motif(s) d\'agitation : ' + this.isFilledIn(this.otherAgitation)
+        'Forts ronflements : ' + isFilledIn(this.noisySnoring),
+        'Longues pauses repsiratoires pendant le sommeil : ' + isFilledIn(this.breathingBreaks),
+        'Saccades ou secousses des jambes pendant le sommeil : ' + isFilledIn(this.leggsShakeWhileSleeping),
+        'Épisodes de désorientation/ confusion pendant sommeil : ' + isFilledIn(this.periodsOfConfusion),
+        'Autre(s) motif(s) d\'agitation : ' + isFilledIn(this.otherAgitation)
       );
     }
 

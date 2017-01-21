@@ -36,6 +36,8 @@ class Dn4Component{
        var date = new Date();
        var today = date.toLocaleDateString();
 
+       var isFilledIn = this.isFilledIn;
+
        var docDefinition = {
            header: 'Formulaire DN4 - ' + today,
 
@@ -47,8 +49,8 @@ class Dn4Component{
                    text: '____________________________________________________________________'
                },
 
-                  'Nom : ' + this.isFilledIn(this.patientLastname),
-                  'Prénom : ' + this.isFilledIn(this.patientFirstname),
+                  'Nom : ' + isFilledIn(this.patientLastname),
+                  'Prénom : ' + isFilledIn(this.patientFirstname),
 
 
                { text: 'La douleur présente-t-elle des :', style: 'header' },
@@ -57,11 +59,11 @@ class Dn4Component{
                    text: '____________________________________________________________________'
                },
 
-               'Brûlures ? ' + this.isFilledIn(this.hasBurns),
+               'Brûlures ? ' + isFilledIn(this.hasBurns),
 
-               'Sensations de froid douloureux ? ' + this.isFilledIn(this.hasPainCold),
+               'Sensations de froid douloureux ? ' + isFilledIn(this.hasPainCold),
 
-               'Décharges électriques ? ' + this.isFilledIn(this.hasElectricShock),
+               'Décharges électriques ? ' + isFilledIn(this.hasElectricShock),
 
                { text: 'La douleur est-elle associée dans la même région à des :', style: 'header' },
                {
@@ -69,13 +71,13 @@ class Dn4Component{
                    text: '____________________________________________________________________'
                },
 
-               'Fourmillements ? ' + this.isFilledIn(this.swarming),
+               'Fourmillements ? ' + isFilledIn(this.swarming),
 
-               'Picotements ? ' + this.isFilledIn(this.tingling),
+               'Picotements ? ' + isFilledIn(this.tingling),
 
-               'Engourdissements ? ' + this.isFilledIn(this.numbness),
+               'Engourdissements ? ' + isFilledIn(this.numbness),
 
-               'Démangeaisons ? ' + this.isFilledIn(this.itching),
+               'Démangeaisons ? ' + isFilledIn(this.itching),
 
                { text: 'La douleur est-elle localisée dans un territoire où l\'examen met en évidence une :', style: 'header' },
                {
@@ -83,16 +85,16 @@ class Dn4Component{
                    text: '____________________________________________________________________'
                },
 
-               'Hypoesthésie au tact ? ' + this.isFilledIn(this.tactHypoesthesia),
+               'Hypoesthésie au tact ? ' + isFilledIn(this.tactHypoesthesia),
 
-               'Hypoesthésie à la piqûre ? ' + this.isFilledIn(this.stingHypoesthesia),
+               'Hypoesthésie à la piqûre ? ' + isFilledIn(this.stingHypoesthesia),
 
                {
                    style: 'border',
                    text: '____________________________________________________________________'
                },
 
-               'La douleur est-elle provoquée ou augmentée par un frottement ? ' + this.isFilledIn(this.friction)
+               'La douleur est-elle provoquée ou augmentée par un frottement ? ' + isFilledIn(this.friction)
 
            ],
 
