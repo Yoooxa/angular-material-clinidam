@@ -53,7 +53,7 @@ class PsqiComponent extends Card{
     var today = date.toLocaleDateString();
 
     var docDefinition =  {
-        header:'PSQI - ' + today,
+        header:'Formulaire PSQI - ' + today,
 
         content: [
           { text: 'Identité du patient', style: 'header' },

@@ -25,80 +25,83 @@ class Dn4Component extends Card{
     }
 
     createPdf() {
-         var docDefinition = {
-             header: 'Formulaire DN4',
+       var date = new Date();
+       var today = date.toLocaleDateString();
 
-             content: [
+       var docDefinition = {
+           header: 'Formulaire DN4 - ' + today,
 
-                 { text: 'Identité du patient', style: 'header' },
-                 {
-                     style: 'border',
-                     text: '____________________________________________________________________'
-                 },
+           content: [
 
-                    'Nom : ' + this.isFilledIn(this.patientLastname),
-                    'Prénom : ' + this.isFilledIn(this.patientFirstname),
+               { text: 'Identité du patient', style: 'header' },
+               {
+                   style: 'border',
+                   text: '____________________________________________________________________'
+               },
+
+                  'Nom : ' + this.isFilledIn(this.patientLastname),
+                  'Prénom : ' + this.isFilledIn(this.patientFirstname),
 
 
-                 { text: 'La douleur présente-t-elle des :', style: 'header' },
-                 {
-                     style: 'border',
-                     text: '____________________________________________________________________'
-                 },
+               { text: 'La douleur présente-t-elle des :', style: 'header' },
+               {
+                   style: 'border',
+                   text: '____________________________________________________________________'
+               },
 
-                 'Brûlures ? ' + this.isFilledIn(this.hasBurns),
+               'Brûlures ? ' + this.isFilledIn(this.hasBurns),
 
-                 'Sensations de froid douloureux ? ' + this.isFilledIn(this.hasPainCold),
+               'Sensations de froid douloureux ? ' + this.isFilledIn(this.hasPainCold),
 
-                 'Décharges électriques ? ' + this.isFilledIn(this.hasElectricShock),
+               'Décharges électriques ? ' + this.isFilledIn(this.hasElectricShock),
 
-                 { text: 'La douleur est-elle associée dans la même région à des :', style: 'header' },
-                 {
-                     style: 'border',
-                     text: '____________________________________________________________________'
-                 },
+               { text: 'La douleur est-elle associée dans la même région à des :', style: 'header' },
+               {
+                   style: 'border',
+                   text: '____________________________________________________________________'
+               },
 
-                 'Fourmillements ? ' + this.isFilledIn(this.swarming),
+               'Fourmillements ? ' + this.isFilledIn(this.swarming),
 
-                 'Picotements ? ' + this.isFilledIn(this.tingling),
+               'Picotements ? ' + this.isFilledIn(this.tingling),
 
-                 'Engourdissements ? ' + this.isFilledIn(this.numbness),
+               'Engourdissements ? ' + this.isFilledIn(this.numbness),
 
-                 'Démangeaisons ? ' + this.isFilledIn(this.itching),
+               'Démangeaisons ? ' + this.isFilledIn(this.itching),
 
-                 { text: 'La douleur est-elle localisée dans un territoire où l\'examen met en évidence une :', style: 'header' },
-                 {
-                     style: 'border',
-                     text: '____________________________________________________________________'
-                 },
+               { text: 'La douleur est-elle localisée dans un territoire où l\'examen met en évidence une :', style: 'header' },
+               {
+                   style: 'border',
+                   text: '____________________________________________________________________'
+               },
 
-                 'Hypoesthésie au tact ? ' + this.isFilledIn(this.tactHypoesthesia),
+               'Hypoesthésie au tact ? ' + this.isFilledIn(this.tactHypoesthesia),
 
-                 'Hypoesthésie à la piqûre ? ' + this.isFilledIn(this.stingHypoesthesia),
+               'Hypoesthésie à la piqûre ? ' + this.isFilledIn(this.stingHypoesthesia),
 
-                 {
-                     style: 'border',
-                     text: '____________________________________________________________________'
-                 },
+               {
+                   style: 'border',
+                   text: '____________________________________________________________________'
+               },
 
-                 'La douleur est-elle provoquée ou augmentée par un frottement ? ' + this.isFilledIn(this.friction)
+               'La douleur est-elle provoquée ou augmentée par un frottement ? ' + this.isFilledIn(this.friction)
 
-             ],
+           ],
 
-             styles: {
-                 header: {
-                     fontSize: 18,
-                     bold: true,
-                     margin: [0, 20, 0, -10]
-                 },
-                 border: {
-                     margin: [0, 0, 0, 10]
-                 }
-             }
-         };
+           styles: {
+               header: {
+                   fontSize: 18,
+                   bold: true,
+                   margin: [0, 20, 0, -10]
+               },
+               border: {
+                   margin: [0, 0, 0, 10]
+               }
+           }
+       };
 
-        this.pdf =  docDefinition;
-    }
+      this.pdf =  docDefinition;
+  }
 }
 
 angular.module('angularMaterialClinidamApp')
