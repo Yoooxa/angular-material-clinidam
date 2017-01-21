@@ -2,10 +2,8 @@
 
 (function(){
 
-class IsiComponent extends Card{
+class IsiComponent{
   constructor() {
-    super();
-
     this.sleepingDifficulties = [
         {label: "Aucune", value: 0},
         {label: "Légère", value: 1},
@@ -13,7 +11,16 @@ class IsiComponent extends Card{
         {label: "Élevée", value: 3},
         {label: "Extrême", value: 4}
     ];
+    this.cardNumber = 1;
 
+  }
+
+  setPreviousCardNumber() {
+      this.cardNumber --;
+  }
+
+  setNextCardNumber() {
+    this.cardNumber ++;
   }
 }
 
