@@ -45,7 +45,8 @@ User.find({}).remove()
       provider: 'local',
       name: 'Test User',
       email: 'test@example.com',
-      password: 'test'
+      password: 'test',
+      validation: 'accepted'
     }, {
       provider: 'local',
       role: 'admin',

@@ -5,7 +5,13 @@
 	    <div class="user-info">
 	        <strong>{{user.name}}</strong><br>
 	        <span class="text-muted">{{user.email}}</span>
+          <span ng-if="user.validation == 'accepted' " class="fa fa-check-circle" style="color:green"></span>
+          <span ng-if="user.validation == 'refused' " class="fa fa-close" style="color:red"></span>
 	    </div>
+        <span ng-if="user.validation == 'pending'" class="validation">
+          <button ng-click="admin.acceptUser(user)" type="button" class="btn btn-success validation-button"> Accepter </button>
+          <button ng-click="admin.refuseUser(user)" type="button" class="btn btn-danger validation-button"> Refuser </button>
+        </span>
         <a ng-click="admin.delete(user)" class="trash"><span class="fa fa-trash fa-2x"></span></a>
     </li>
   </ul>

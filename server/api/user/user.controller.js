@@ -116,6 +116,19 @@ export function me(req, res, next) {
 }
 
 /**
+ * Update field "validation" for a given user.
+ * restriction: 'admin'
+ */
+export function updateValidation(req, res) {
+  console.log(req.body);
+  return User.findOneAndUpdate( {_id: req.body.userId }, { validation: req.body.state }).exec()
+    .then(function() {
+      res.redirect(req.get('referer'));
+    })
+    .catch(handleError(res));
+}
+
+/**
  * Authentication callback
  */
 export function authCallback(req, res, next) {
