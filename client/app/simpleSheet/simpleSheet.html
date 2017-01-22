@@ -91,6 +91,7 @@
             </md-card-header>
             <div class="card-content">
                 <!-- TO DO : Mettre le canvas -->
+                <img src="../assets/images/evaluation-douleur.png" style="width:100%">
             </div>
           </div>
           <!-- End Card 3/22 -->
@@ -913,11 +914,11 @@
                         31 <md-radio-button style="margin-left: 5px" class="md-primary" value="31"></md-radio-button>
                         41 <md-radio-button style="margin-left: 5px" class="md-primary" value="41"></md-radio-button>
                     </span>
-                    <md-input-container>
-                        <label>Autre</label>
-                        <input required name="other" ng-model="vm.otherTooth">
-                    </md-input-container>
                 </md-radio-group>
+                <md-input-container>
+                    <label>Autre</label>
+                    <input required name="other" ng-model="vm.otherTooth">
+                </md-input-container>
 
                 <div>Surplomb horizontal : </div>
                 <md-input-container>
@@ -1470,255 +1471,7 @@
               </md-card-header-text>
             </md-card-header>
             <div class="card-content">
-              <div class="card-title"> </div>
-              <div layout="row">
-                  <div flex="40"></div>
-                  <div layout="row" flex="80">
-                      <div flex class="table-column">Douleur provoquée</div>
-                      <div flex class="table-column">Est-elle identique à la douleur habituelle ?</div>
-                      <div flex class="table-column">Douleur(s) référée(s)</div>
-                  </div>
-
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Ouverture max. non assitée</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.sleepingDifficulty">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Ouverture max. assistée</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.stayingSleepDifficulty">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Ouvertue contre résistance</p>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Fermeture contre résistance</p>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Latéralité droite</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Latéralitée droite assistée</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Latéralité droite contre résistance</p>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Latéralité gauche</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Latéralité gauche contre résistance</p>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Propulsion</p>
-                        <md-input-container>
-                            <label>0 mm</label>
-                            <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                        </md-input-container>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <div layout="row" class="table-input">
-                  <div flex="40" class="form-question">
-                      <p>Propulsion contre résistance</p>
-                  </div>
-                  <md-radio-group layout="row" flex="80" ng-model="vm.wakeupProblem">
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="1"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">
-                          <md-radio-button class="md-primary" value="2"></md-radio-button>
-                      </div>
-                      <div flex class="table-radio-button">        
-                        <md-select ng-model="vm.douleur" flex="80" style="margin: 0 auto;">
-                            <md-option ng-repeat="douleur in douleurs" value="{{douleur.value}}">
-                            </md-option>
-                        </md-select>
-                      </div>
-                  </md-radio-group>
-              </div>
-              <br>
-              <div>Est-ce que l'un des mouvements effectués vous a déclenché des maux de tête ?</div>
-                <md-input-container>
-                    <label>0 mm</label>
-                    <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
-                </md-input-container>
+                <img src="../assets/images/trajet-ouverture.png" style="width:100%">
             </div>
           </div>
           <!-- End Card 19/22 -->
@@ -1747,7 +1500,7 @@
           <!-- End Card 21/22 -->
 
           <!-- Card 22/22 - Test du bâtonnet -->
-          <div ng-if="vm.cardNumber == 21">
+          <div ng-if="vm.cardNumber == 22">
             <md-card-header>
               <md-card-header-text>
                 <span class="md-title"> Test du bâtonnet </span>
@@ -1760,7 +1513,7 @@
           <!-- End Card 21/22 -->
 
           <!-- Card 22/22 - Elasticité articulaire -->
-          <div ng-if="vm.cardNumber == 22">
+          <div ng-if="vm.cardNumber == 23">
             <md-card-header>
               <md-card-header-text>
                 <span class="md-title"> Elasticité articulaire </span>
@@ -1773,20 +1526,20 @@
           <!-- End Card 22/22 -->
 
           <!-- Card 23/22 - Examen endo-buccal -->
-          <div ng-if="vm.cardNumber == 23">
+          <div ng-if="vm.cardNumber == 24">
             <md-card-header>
               <md-card-header-text>
                 <span class="md-title"> Examen endo-buccal </span>
               </md-card-header-text>
             </md-card-header>
             <div class="card-content">
-
+                <img src="../assets/images/examen-endobuccal.png" style="width:100%;">
             </div>
           </div>
           <!-- End Card 23/22 -->
 
           <!-- Card 24/22 - Examen endo-buccal -->
-          <div ng-if="vm.cardNumber == 24">
+          <div ng-if="vm.cardNumber == 25">
             <md-card-header>
               <md-card-header-text>
                 <span class="md-title"> Usures dentaires / bruxismes </span>
@@ -1800,26 +1553,56 @@
 
 
           <!-- Card 25/22 - Examen endo-buccal -->
-          <div ng-if="vm.cardNumber == 25">
+          <div ng-if="vm.cardNumber == 26">
             <md-card-header>
               <md-card-header-text>
-                <span class="md-title"> Usures dentaires / bruxismes </span>
+                <span class="md-title"> Examens complémentaires </span>
               </md-card-header-text>
             </md-card-header>
             <div class="card-content">
+                <md-input-container>
+                    <label>Type d'examen</label>
+                    <input required name="decalageInciisif" ng-model="vm.decalageInciisif">
+                </md-input-container><br>
+                <md-button class="md-raised md-primary" style="text-align:center;">Télécharger une photo</md-button>
+                <md-button class="md-raised md-primary" style="text-align:center;">Ajouter un examen</md-button>
+                <md-button class="md-raised md-primary" style="text-align:center;">Supprimer un examen</md-button>
+            </div>
 
+            <md-card-header>
+              <md-card-header-text>
+                <span class="md-title"> Diagnostic </span>
+              </md-card-header-text>
+            </md-card-header>
+            <div class="card-content">
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <textarea ng-model="vm.healthBilan" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+
+            <md-card-header>
+              <md-card-header-text>
+                <span class="md-title"> Plan de traitement </span>
+              </md-card-header-text>
+            </md-card-header>
+            <div class="card-content">
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <textarea ng-model="vm.healthBilan" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                </md-input-container>
             </div>
           </div>
           <!-- End Card 25/22 -->
 
           <div layout="row" layout-align="start center">
-              <md-progress-linear flex md-mode="determinate" value="{{(vm.cardNumber/25)*100}}"></md-progress-linear>
-              <p flex="20" class="card-pagination">Page {{ vm.cardNumber }} sur 25</p>
+              <md-progress-linear flex md-mode="determinate" value="{{(vm.cardNumber/26)*100}}"></md-progress-linear>
+              <p flex="20" class="card-pagination">Page {{ vm.cardNumber }} sur 26</p>
 
               <md-card-actions layout="row" layout-align="end center">
                   <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
-                  <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 25">Suivant</md-button>
-                  <md-button ng-click="" ng-if="vm.cardNumber == 25"> Valider </md-button>
+                  <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 26">Suivant</md-button>
+                  <md-button ng-click="" ng-if="vm.cardNumber == 26"> Valider </md-button>
               </md-card-actions>
           </div>  
         </md-card>
