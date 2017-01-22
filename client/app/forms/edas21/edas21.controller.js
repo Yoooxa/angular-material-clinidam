@@ -11,6 +11,8 @@ class Edas21Component{
       {label: "Totalement", value: "Totalement"},
     ];
     this.cardNumber = 1;
+
+    this.form = {};
   }
 
   setPreviousCardNumber() {
@@ -52,8 +54,8 @@ class Edas21Component{
           text: '____________________________________________________________________'
         },
 
-        'Nom : ' + isFilledIn(this.patientLastname),
-        'Prénom : ' + isFilledIn(this.patientFirstname),
+        'Nom : ' + isFilledIn(this.form.patientLastname),
+        'Prénom : ' + isFilledIn(this.form.patientFirstname),
 
         { text: 'Au cours du dernier mois : ', style: 'header' },
         {
@@ -61,26 +63,26 @@ class Edas21Component{
           text: '____________________________________________________________________'
         },
 
-        'Difficultés à décompresser : ' + isFilledIn(this.decompressProblem),
-        'Conscient(e) d\'avoir la bouche sèche : ' + isFilledIn(this.mouthProblem),
-        'Impression de ne pas ressentir d\'émotion positive : ' + isFilledIn(this.noPositiveMood),
-        'Difficultés à respirer sans faire d\'effort physique : ' + isFilledIn(this.hardBreath),
-        'Difficultés à commencer de nouvelles activités : ' + isFilledIn(this.hardNewActivities),
-        'Tendance à réagir de façon exagérée : ' + isFilledIn(this.reactExaggeratedly),
-        'Tremblements (ex: mains, ...) : ' + isFilledIn(this.tremblingProblem),
-        'Pensées à des situations de paniques : ' + isFilledIn(this.situationsWorry),
-        'Sentiment de ne rien envisager avec le plaisir : ' + isFilledIn(this.noPleasure),
-        'S\'est aperçu(e) qu\'il(elle) devenait agité(e) : ' + isFilledIn(this.beAgitated),
-        'Difficultés à se détendre : ' + isFilledIn(this.loosenProblem),
-        'S\'est senti(e) triste et déprimé(e) : ' + isFilledIn(this.beSad),
-        'S\'est aperçu qu\'il(elle) impatient(e) lorsque retardé(e) : ' + isFilledIn(this.beLate),
-        'Sentiment d\'être prise(e) de panique : ' + isFilledIn(this.bePanicked),
-        'Incapable de se sentir enthousiaste : ' + isFilledIn(this.beEnthusiastic),
-        'Sentiment de ne pas valoir grand chose : ' + isFilledIn(this.beNothing),
-        ' S\'est aperçu(e) qu\'il(elle) était très irritable : ' + isFilledIn(this.beIrritable),
-        'A eu conscience de palpitations cardiaques en l\'absence d\'effort physique : ' + isFilledIn(this.heartPalpitations),
-        'A eu peur sans bonne raison : ' + isFilledIn(this.beScared),
-        'A eu l\'impression que la vie n\'avait pas de sens : ' + isFilledIn(this.lifeNoSense)
+        'Difficultés à décompresser : ' + isFilledIn(this.form.decompressProblem),
+        'Conscient(e) d\'avoir la bouche sèche : ' + isFilledIn(this.form.mouthProblem),
+        'Impression de ne pas ressentir d\'émotion positive : ' + isFilledIn(this.form.noPositiveMood),
+        'Difficultés à respirer sans faire d\'effort physique : ' + isFilledIn(this.form.hardBreath),
+        'Difficultés à commencer de nouvelles activités : ' + isFilledIn(this.form.hardNewActivities),
+        'Tendance à réagir de façon exagérée : ' + isFilledIn(this.form.reactExaggeratedly),
+        'Tremblements (ex: mains, ...) : ' + isFilledIn(this.form.tremblingProblem),
+        'Pensées à des situations de paniques : ' + isFilledIn(this.form.situationsWorry),
+        'Sentiment de ne rien envisager avec le plaisir : ' + isFilledIn(this.form.noPleasure),
+        'S\'est aperçu(e) qu\'il(elle) devenait agité(e) : ' + isFilledIn(this.form.beAgitated),
+        'Difficultés à se détendre : ' + isFilledIn(this.form.loosenProblem),
+        'S\'est senti(e) triste et déprimé(e) : ' + isFilledIn(this.form.beSad),
+        'S\'est aperçu qu\'il(elle) impatient(e) lorsque retardé(e) : ' + isFilledIn(this.form.beLate),
+        'Sentiment d\'être prise(e) de panique : ' + isFilledIn(this.form.bePanicked),
+        'Incapable de se sentir enthousiaste : ' + isFilledIn(this.form.beEnthusiastic),
+        'Sentiment de ne pas valoir grand chose : ' + isFilledIn(this.form.beNothing),
+        ' S\'est aperçu(e) qu\'il(elle) était très irritable : ' + isFilledIn(this.form.beIrritable),
+        'A eu conscience de palpitations cardiaques en l\'absence d\'effort physique : ' + isFilledIn(this.form.heartPalpitations),
+        'A eu peur sans bonne raison : ' + isFilledIn(this.form.beScared),
+        'A eu l\'impression que la vie n\'avait pas de sens : ' + isFilledIn(this.form.lifeNoSense)
 
 
       ],

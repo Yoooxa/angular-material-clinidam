@@ -20,17 +20,17 @@
                         <div class="card-content">
                             <md-input-container>
                                 <label>Nom</label>
-                                <input required name="clientName" ng-model="vm.patientLastname">
+                                <input required name="clientName" ng-model="vm.form.patientLastname">
                             </md-input-container>
 
                             <md-input-container>
                                 <label>Prénom</label>
-                                <input required name="clientName" ng-model="vm.patientFirstname">
+                                <input required name="clientName" ng-model="vm.form.patientFirstname">
                             </md-input-container>
 
                             <md-input-container>
                                 <label>Naissance</label>
-                                <md-datepicker required ng-model="vm.birthdayDate" name="birthdayDate"></md-datepicker>
+                                <md-datepicker required ng-model="vm.form.birthdayDate" name="birthdayDate"></md-datepicker>
                             </md-input-container>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai trouvé difficile de décompresser</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.decompressProblem">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.decompressProblem">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -67,7 +67,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai été conscient(e) d'avoir la bouche sèche</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.mouthProblem">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.mouthProblem">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -77,7 +77,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu l'impression de ne pas pouvoir ressentir d'émotion positive</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.noPositiveMood">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.noPositiveMood">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -88,7 +88,7 @@
                                 <p>J'ai eu de la difficulté à respirer (par exemple, respirations excessivement rapides,
                                     essoufflement sans effort physique)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.hardBreath">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.hardBreath">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -98,7 +98,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu de la difficulté à initier de nouvelles activités</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.hardNewActivities">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.hardNewActivities">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -108,7 +108,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu tendance à réagir de façon exagérée</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.reactExaggeratedly">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.reactExaggeratedly">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -118,7 +118,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu des tremblements (par exemple, des mains)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.tremblingProblem">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.tremblingProblem">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -128,7 +128,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu l'impression de dépenser beaucoup d'énergie nerveuse</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.spendBadEnergy">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.spendBadEnergy">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -139,7 +139,7 @@
                                 <p>Je me suis inquiété(e) en pensant à des situations où je pourrais paniquer et faire de
                                     moi un(e) idiot(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.situationsWorry">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.situationsWorry">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -149,7 +149,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu le sentiment de ne rien envisager avec plaisir</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.noPleasure">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.noPleasure">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -181,7 +181,7 @@
                             <div flex="40" class="form-question">
                                 <p>Je me suis aperçu(e) que je devenais agité(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beAgitated">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beAgitated">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -191,7 +191,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu de la difficulté à me détendre</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.loosenProblem">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.loosenProblem">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -201,7 +201,7 @@
                             <div flex="40" class="form-question">
                                 <p>Je me suis senti(e) triste et déprimé(e)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beSad">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beSad">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -212,7 +212,7 @@
                                 <p>Je me suis aperçu(e) que je devenais impatient(e) lorsque j'étais retardé(e) de quelque
                                     façon que ce soit (par exemple, dans les ascenseurs, aux feux de circulation...)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beLate">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beLate">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -222,7 +222,7 @@
                             <div flex="40" class="form-question">
                                 <p> J'ai eu le sentiment d'être presque pris(e) de panique</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.bePanicked">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.bePanicked">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -232,7 +232,7 @@
                             <div flex="40" class="form-question">
                                 <p> J'ai été incapable de me sentir enthousiaste au sujet de quoi que ce soit</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beEnthusiastic">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beEnthusiastic">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -242,7 +242,7 @@
                             <div flex="40" class="form-question">
                                 <p>J'ai eu le sentiment de ne pas valoir grand chose comme personne</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beNothing">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beNothing">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -252,7 +252,7 @@
                             <div flex="40" class="form-question">
                                 <p>Je me suis aperçu(e) que j’étais très irritable</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beIrritable">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beIrritable">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -263,7 +263,7 @@
                                 <p>J’ai été conscient(e) des palpitations de mon coeur en l’absence d’effort physique (sensation
                                     d’augmentation de mon rythme cardiaque ou l’impression que mon cœur venait de sauter)</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.heartPalpitations">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.heartPalpitations">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -273,7 +273,7 @@
                             <div flex="40" class="form-question">
                                 <p>J’ai eu peur sans bonne raison</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.beScared">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.beScared">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -283,7 +283,7 @@
                             <div flex="40" class="form-question">
                                 <p>J’ai eu l’impression que la vie n’avait pas de sens</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.lifeNoSense">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.lifeNoSense">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
