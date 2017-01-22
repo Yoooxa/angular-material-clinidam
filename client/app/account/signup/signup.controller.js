@@ -7,9 +7,10 @@ class SignupController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state) {
+  constructor(Auth, $state, $mdToast) {
     this.Auth = Auth;
     this.$state = $state;
+    this.mdToast = $mdToast;
   }
 
   register(form) {
@@ -25,6 +26,16 @@ class SignupController {
           location: this.user.location
         })
         .then(() => {
+
+        var $mdToast = this.mdToast;
+
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent("Votre compte doit être validé par un administrateur, nous vous contacterons quand vous pourrez l'utiliser !")
+            .hideDelay(6000)
+            .action("Compris !")
+        );
+
           // Account created, redirect to home
           this.$state.go('main');
         })
