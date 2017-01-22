@@ -15,17 +15,17 @@
                     <div class="card-content">
                         <md-input-container>
                             <label>Nom</label>
-                            <input required name="clientName" ng-model="vm.patientLastname">
+                            <input required name="clientName" ng-model="vm.form.patientLastname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Prénom</label>
-                            <input required name="clientName" ng-model="vm.patientFirstname">
+                            <input required name="clientName" ng-model="vm.form.patientFirstname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Naissance</label>
-                            <md-datepicker required ng-model="vm.birthdayDate" name="birthdayDate"></md-datepicker>
+                            <md-datepicker required ng-model="vm.form.birthdayDate" name="birthdayDate"></md-datepicker>
                         </md-input-container>
                     </div>
                 </div>
@@ -40,22 +40,22 @@
                     </md-card-header>
                     <div class="card-content">
                         <div>Au cours du mois dernier, quand êtes-vous habituellement allé(e) vous coucher le soir ?</div>
-                        <div uib-timepicker ng-model="vm.usualSleepingHour" hour-step="1" minute-step="15" show-meridian="false"></div>
+                        <div uib-timepicker ng-model="vm.form.usualSleepingHour" hour-step="1" minute-step="15" show-meridian="false"></div>
                         <div>Au cours du mois dernier, combien vous a-t-il habituellement fallu de temps (en minutes) pour vous endormir
                             chaque soir ?</div>
                         <md-input-container>
                             <label>Temps en minutes</label>
-                            <input type="number" step="5" name="minutesBeforeSleep" ng-model="vm.minutesBeforeSleep">
+                            <input type="number" step="5" name="minutesBeforeSleep" ng-model="vm.form.minutesBeforeSleep">
                         </md-input-container>
 
                         <div>Au cours du mois dernier, à quelle heure vous êtes vous habituellement réveillé le matin ?</div>
-                        <div uib-timepicker ng-model="vm.usualWakeUpHour" hour-step="1" minute-step="15" show-meridian="false"></div>
+                        <div uib-timepicker ng-model="vm.form.usualWakeUpHour" hour-step="1" minute-step="15" show-meridian="false"></div>
 
                         <div>Au cours du mois dernier, combien d'heures de sommeil effectif avez-vous eues chaque nuit ? (Ce nombre peut
                             être différent du nombre d'heures que vous avez passées au lit) ?</div>
                         <md-input-container>
                             <label>Nombre d'heures</label>
-                            <input type="number" name="effectiveSleep" ng-model="vm.effectiveSleep">
+                            <input type="number" name="effectiveSleep" ng-model="vm.form.effectiveSleep">
                         </md-input-container>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous eu des difficultés à vous endormir en moins de 30 minutes ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.sleepAfter30Minutes">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.sleepAfter30Minutes">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -92,7 +92,7 @@
                             <div flex="40" class="form-question">
                                 <p>Vous êtes vous réveillé avant l'heure souhaitée ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.wakeUpBeforeEstimatedHour">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.wakeUpBeforeEstimatedHour">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -103,7 +103,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous dû vous lever pour aller aux toilettes ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.wakeUpToGoToToilet">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.wakeUpToGoToToilet">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -114,7 +114,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous eu des difficultés à respirer dans votre sommeil ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.breathingDifficultiesWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.breathingDifficultiesWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -125,7 +125,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous toussé pendant la nuit ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.coughWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.coughWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -136,7 +136,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous eu trop froid pendant votre sommeil ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.coldWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.coldWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -147,7 +147,7 @@
                             <div flex="40" class="form-question">
                                 <p>Acez-vous eu trop chaud pendant votre sommeil ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.warmWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.warmWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -158,7 +158,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous fait des mauvais rêves ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.badDreamsWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.badDreamsWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -169,7 +169,7 @@
                             <div flex="40" class="form-question">
                                 <p>Avez-vous souffert de douleurs pendant votre sommeil ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.painWhileSleeping">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.painWhileSleeping">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -182,7 +182,7 @@
                             </div>
                             <md-input-container flex>
                                 <label>Description</label>
-                                <input flex="80" ng-model="vm.otherSleepTroubleReason">
+                                <input flex="80" ng-model="vm.form.otherSleepTroubleReason">
                             </md-input-container>
                         </div>
 
@@ -190,7 +190,7 @@
                             <div flex="40" class="form-question">
                                 <p>A quelle fréquence avez-vous recontré ces problèmes ?</p>
                             </div>
-                            <md-radio-group layout="row" flex="80" ng-model="vm.otherSleepTroubleReasonFrequency">
+                            <md-radio-group layout="row" flex="80" ng-model="vm.form.otherSleepTroubleReasonFrequency">
                                 <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                     <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                 </div>
@@ -200,7 +200,7 @@
 
                         <div layout="row">
                             <div flex="40" class="form-question" style="margin-top: 7px"> Au cours du mois dernier, comment évalueriez-vous globalement la qualité de votre sommeil ? </div>
-                            <md-radio-group layout="row" layout-align="center center" ng-model="vm.lastMonthSleepingQuality">
+                            <md-radio-group layout="row" layout-align="center center" ng-model="vm.form.lastMonthSleepingQuality">
               <span>
                 Très mauvaise
                 <md-radio-button style="margin-left: 5px" class="md-primary" value="1"></md-radio-button>
@@ -227,19 +227,19 @@
                     <div class="card-content">
                         <div>Au cours du mois dernier, combien de fois avez-vous pris des médicaments (prescrits par votre médecin ou achetés
                             sans ordonnance) pour faciliter votre sommeil ?</div>
-                        <md-radio-group layout="column" ng-model="vm.medicineTakenToSleep">
+                        <md-radio-group layout="column" ng-model="vm.form.medicineTakenToSleep">
                             <md-radio-button ng-repeat="input in vm.inputsGroup" value="{{input.value}}">{{input.label}}</md-radio-button>
                         </md-radio-group>
 
                         <div>Au cours du mois dernier, combien de fois avez-vous eu des difficultés à demeurer éveillé(e) pendant que vous
                             conduisiez, preniez vos repas, étiez occupé(e) dans une activité sociale ?</div>
-                        <md-radio-group layout="column" ng-model="vm.difficultiesToStayAwake">
+                        <md-radio-group layout="column" ng-model="vm.form.difficultiesToStayAwake">
                             <md-radio-button ng-repeat="input in vm.inputsGroup" value="{{input.value}}">{{input.label}}</md-radio-button>
                         </md-radio-group>
 
                         <div>Au cours du mois dernier, à quel degré cela a-t-il représenté un problème pour vous d'avoir assez d'enthousiasme
                             pour faire ce que vous aviez à faire ?</div>
-                        <md-radio-group layout="column" ng-model="vm.enthusiasmProblem">
+                        <md-radio-group layout="column" ng-model="vm.form.enthusiasmProblem">
                             <md-radio-button value="Pas de problème">Pas de problème du tout</md-radio-button>
                             <md-radio-button value="Problème léger">Seulement un tout petit problème</md-radio-button>
                             <md-radio-button value="Problème certain">Un certain problème</md-radio-button>
@@ -260,7 +260,7 @@
 
                     <div class="card-content">
                         <div>Avez vous un conjoint ou un camarade de chambre ?</div>
-                        <md-radio-group layout="column" ng-model="vm.hasRoomMate">
+                        <md-radio-group layout="column" ng-model="vm.form.hasRoomMate">
                             <md-radio-button value="NON">Ni l'un ni l'autre</md-radio-button>
                             <md-radio-button value="OUI + CHAMBRE DIFFERENTE">Oui, mais dans une chambre différente</md-radio-button>
                             <md-radio-button value="OUI + LIT DIFFERENT">Oui, dans la même chambre mais pas dans le même lit</md-radio-button>
@@ -280,7 +280,7 @@
                                 <div flex="40" class="form-question">
                                     <p> De forts ronflements</p>
                                 </div>
-                                <md-radio-group layout="row" flex="80" ng-model="vm.noisySnoring">
+                                <md-radio-group layout="row" flex="80" ng-model="vm.form.noisySnoring">
                                     <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                         <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                     </div>
@@ -291,7 +291,7 @@
                                 <div flex="40" class="form-question">
                                     <p> De longues pauses respiratoires pendant votre sommeil</p>
                                 </div>
-                                <md-radio-group layout="row" flex="80" ng-model="vm.breathingBreaks">
+                                <md-radio-group layout="row" flex="80" ng-model="vm.form.breathingBreaks">
                                     <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                         <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                     </div>
@@ -302,7 +302,7 @@
                                 <div flex="40" class="form-question">
                                     <p> Des saccades ou des secousses des jambes pendant que vous dormiez</p>
                                 </div>
-                                <md-radio-group layout="row" flex="80" ng-model="vm.leggsShakeWhileSleeping">
+                                <md-radio-group layout="row" flex="80" ng-model="vm.form.leggsShakeWhileSleeping">
                                     <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                         <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                     </div>
@@ -313,7 +313,7 @@
                                 <div flex="40" class="form-question">
                                     <p> Des épisodes de désorientation ou de confusion pendant le sommeil</p>
                                 </div>
-                                <md-radio-group layout="row" flex="80" ng-model="vm.periodsOfConfusion">
+                                <md-radio-group layout="row" flex="80" ng-model="vm.form.periodsOfConfusion">
                                     <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                         <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                     </div>
@@ -323,7 +323,7 @@
                                 <div flex="40" class="form-question">
                                     <p> D'autres motifs d'agitation pendant votre sommeil</p>
                                 </div>
-                                <md-radio-group layout="row" flex="80" ng-model="vm.otherAgitation">
+                                <md-radio-group layout="row" flex="80" ng-model="vm.form.otherAgitation">
                                     <div flex class="table-radio-button" ng-repeat="answer in vm.inputsGroup">
                                         <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                                     </div>
@@ -342,6 +342,7 @@
                         <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
                         <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 5">Suivant</md-button>
                         <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 5"> Voir PDF </md-button>
+                        <md-button ng-click="vm.download()" ng-if="vm.cardNumber == 5"> Enregistrer PDF </md-button>
                     </md-card-actions>
                 </div>
             </md-card>

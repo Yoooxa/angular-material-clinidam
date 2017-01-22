@@ -13,6 +13,8 @@ class IsiComponent{
     ];
     this.cardNumber = 1;
 
+    this.form = {};
+
   }
 
   setPreviousCardNumber() {
@@ -36,6 +38,11 @@ class IsiComponent{
     pdfMake.createPdf(this.pdf).open();
   }
 
+  downloadPdf() {
+    this.createPdf();
+    pdfMake.createPdf(this.pdf).download();
+  }
+
   createPdf() {
     var date = new Date();
     var today = date.toLocaleDateString();
@@ -53,8 +60,8 @@ class IsiComponent{
           text: '____________________________________________________________________'
         },
 
-        'Nom : ' + isFilledIn(this.patientLastname),
-        'Prénom : ' + isFilledIn(this.patientFirstname),
+        'Nom : ' + isFilledIn(this.form.patientLastname),
+        'Prénom : ' + isFilledIn(this.form.patientFirstname),
 
         {text: 'Difficultés du sommeil', style: 'header' },
         {
@@ -62,9 +69,9 @@ class IsiComponent{
           text: '____________________________________________________________________'
         },
 
-        'Difficultés à s\'endormir : ' + isFilledIn(this.sleepingDifficulty),
-        'Difficultés à rester endormi(e) : ' + isFilledIn(this.stayingSleepDifficulty),
-        'Difficultés à se réveiller le matin : ' + isFilledIn(this.wakeUpProblem),
+        'Difficultés à s\'endormir : ' + isFilledIn(this.form.sleepingDifficulty),
+        'Difficultés à rester endormi(e) : ' + isFilledIn(this.form.stayingSleepDifficulty),
+        'Difficultés à se réveiller le matin : ' + isFilledIn(this.form.wakeUpProblem),
 
         {text: 'Satisfaction/ Insatisfaction du sommeil', style: 'header' },
         {
@@ -72,10 +79,10 @@ class IsiComponent{
           text: '____________________________________________________________________'
         },
 
-        'Satisfaction du sommeil actuel : ' + isFilledIn(this.sleepingSatisfaction),
-        'Inquiétude par rapport aux difficultés de sommeil actuelles: ' + isFilledIn(this.sleepingWorries),
-        'Évaluation de la qualité du sommeil : ' + isFilledIn(this.sleepingQuality),
-        'Sensation lors du réveil le matin : ' + isFilledIn(this.morningMood),
+        'Satisfaction du sommeil actuel : ' + isFilledIn(this.form.sleepingSatisfaction),
+        'Inquiétude par rapport aux difficultés de sommeil actuelles: ' + isFilledIn(this.form.sleepingWorries),
+        'Évaluation de la qualité du sommeil : ' + isFilledIn(this.form.sleepingQuality),
+        'Sensation lors du réveil le matin : ' + isFilledIn(this.form.morningMood),
 
         {text: 'Visibilité des difficultés de sommeil', style: 'header' },
         {
@@ -83,14 +90,14 @@ class IsiComponent{
           text: '____________________________________________________________________'
         },
 
-        'Perturbation du fonctionnement quotidien : ' + isFilledIn(this.dailyPerturbation),
-        'Diminution de la qualité de vie apparente pour les autres: ' + isFilledIn(this.badLifeQuality),
-        'Détérioration de la qualité de vie : ' + isFilledIn(this.lifeQualityDecrease),
-        'Fatigue durant la journée : ' + isFilledIn(this.dayTired),
-        'Impact sur la concentration ou la mémoire : ' + isFilledIn(this.concentrationProblem),
-        'Impact sur les relations interpersonnelles : ' + isFilledIn(this.persoRelationProblem),
-        'Impact sur l\'humeur : ' + isFilledIn(this.moodProblem),
-        'Impact sur les activités sociales ou de loisir : ' + isFilledIn(this.activityProblem),
+        'Perturbation du fonctionnement quotidien : ' + isFilledIn(this.form.dailyPerturbation),
+        'Diminution de la qualité de vie apparente pour les autres: ' + isFilledIn(this.form.badLifeQuality),
+        'Détérioration de la qualité de vie : ' + isFilledIn(this.form.lifeQualityDecrease),
+        'Fatigue durant la journée : ' + isFilledIn(this.form.dayTired),
+        'Impact sur la concentration ou la mémoire : ' + isFilledIn(this.form.concentrationProblem),
+        'Impact sur les relations interpersonnelles : ' + isFilledIn(this.form.persoRelationProblem),
+        'Impact sur l\'humeur : ' + isFilledIn(this.form.moodProblem),
+        'Impact sur les activités sociales ou de loisir : ' + isFilledIn(this.form.activityProblem),
 
 
 
