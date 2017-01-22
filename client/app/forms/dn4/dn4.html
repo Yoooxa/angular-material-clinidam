@@ -15,17 +15,17 @@
                     <div class="card-content">
                         <md-input-container>
                             <label>Nom</label>
-                            <input required name="clientName" ng-model="vm.patientLastname">
+                            <input required name="clientName" ng-model="vm.form.patientLastname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Prénom</label>
-                            <input required name="clientName" ng-model="vm.patientFirstname">
+                            <input required name="clientName" ng-model="vm.form.patientFirstname">
                         </md-input-container>
 
                         <md-input-container>
                             <label>Naissance</label>
-                            <md-datepicker required ng-model="vm.patientBirthday" name="birthdayDate"></md-datepicker>
+                            <md-datepicker required ng-model="vm.form.patientBirthday" name="birthdayDate"></md-datepicker>
                         </md-input-container>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <div flex="40" class="form-question">
                             <p>Brûlure</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.hasBurns">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.hasBurns">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -56,7 +56,7 @@
                         <div flex="40" class="form-question">
                             <p>Sensation de froid douloureux</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.hasPainCold">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.hasPainCold">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -67,7 +67,7 @@
                         <div flex="40" class="form-question">
                             <p>Décharges électriques</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.hasElectricShock">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.hasElectricShock">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -79,7 +79,7 @@
                         <div flex="40" class="form-question">
                             <p>Fourmillements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.swarming">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.swarming">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -90,7 +90,7 @@
                         <div flex="40" class="form-question">
                             <p>Picotements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.tingling">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.tingling">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -101,7 +101,7 @@
                         <div flex="40" class="form-question">
                             <p>Engourdissements</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.numbness">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.numbness">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -112,7 +112,7 @@
                         <div flex="40" class="form-question">
                             <p>Démangeaisons</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.itching">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.itching">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -124,7 +124,7 @@
                         <div flex="40" class="form-question">
                             <p>Hypoesthésie au tact</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.tactHypoesthesia">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.tactHypoesthesia">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -135,7 +135,7 @@
                         <div flex="40" class="form-question">
                             <p>Hypoesthésie à la piqûre</p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.stingHypoesthesia">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.stingHypoesthesia">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -147,7 +147,7 @@
                         <div flex="40" class="form-question">
                             <p></p>
                         </div>
-                        <md-radio-group layout="row" flex="80" ng-model="vm.friction">
+                        <md-radio-group layout="row" flex="80" ng-model="vm.form.friction">
                             <div flex class="table-radio-button" ng-repeat="answer in vm.answers">
                                 <md-radio-button class="md-primary" value="{{ answer.value }}"></md-radio-button>
                             </div>
@@ -164,6 +164,7 @@
                         <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
                         <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 2">Suivant</md-button>
                         <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 2"> Voir PDF </md-button>
+                        <md-button ng-click="vm.downloadPdf()" ng-if="vm.cardNumber == 2"> Enregistrer PDF </md-button>
                     </md-card-actions>
                 </div>
             </md-card>
