@@ -3,12 +3,13 @@ import {Strategy as LocalStrategy} from 'passport-local';
 
 function localAuthenticate(User, email, password, done) {
   User.findOne({
-    email: email.toLowerCase()
+    email: email.toLowerCase(),
+    validation: 'accepted'
   }).exec()
     .then(user => {
       if (!user) {
         return done(null, false, {
-          message: 'This email is not registered.'
+          message: 'This email is not registered or hasn\' been activated.'
         });
       }
       user.authenticate(password, function(authError, authenticated) {
