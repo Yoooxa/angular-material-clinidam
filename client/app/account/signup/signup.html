@@ -6,7 +6,7 @@
   <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
     <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-      <div>
+      <div style="width: 500px">
         <md-input-container class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
           <label>Nom</label>
@@ -17,10 +17,6 @@
           </p>
         </md-input-container>
 
-        <md-input-container>
-          <label>Prénom</label>
-          <input ng-model="vm.firstname" type="email">
-        </md-input-container>
         <md-input-container class="md-block form-group" ng-class="{ 'has-success': form.password.$valid && vm.submitted,
                                             'has-error': form.password.$invalid && vm.submitted }">
           <label>Mot de passe</label>
@@ -73,25 +69,21 @@
 
             <md-input-container>
               <label>Naissance</label>
-              <md-datepicker ng-model="vm.birthdate"></md-datepicker>
+              <md-datepicker ng-model="vm.user.birth"></md-datepicker>
             </md-input-container>
           </div>
 
           <div layout-gt-xs="row">
             <md-input-container class="md-block" flex-gt-sm>
               <label>Ville</label>
-              <md-select ng-model="vm.country">
-                <md-option ng-repeat="country in countries" value="{{country.abbrev}}">
-                  {{country.abbrev}}
-                </md-option>
-              </md-select>
+              <input type="text" name="location" class="form-control" ng-model="vm.user.location"/>
             </md-input-container>
+
             <md-input-container>
               <label>Sexe</label>
-              <md-select ng-model="vm.sex">
-                <md-option ng-repeat="sex in sexes" value="{{sex.abbrev}}">
-                  {{sex.abbrev}}
-                </md-option>
+              <md-select ng-model="vm.user.gender">
+                <md-option value="female"> Femme</md-option>
+                <md-option value="male"> Homme </md-option>
               </md-select>
             </md-input-container>
           </div>

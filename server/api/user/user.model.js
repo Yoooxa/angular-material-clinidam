@@ -6,7 +6,10 @@ mongoose.Promise = require('bluebird');
 import {Schema} from 'mongoose';
 
 var UserSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     lowercase: true,
@@ -14,14 +17,39 @@ var UserSchema = new Schema({
   },
   role: {
     type: String,
+    enum: ['user', 'admin', 'superadmin'],
     default: 'user'
   },
   password: {
     type: String,
     required: true
   },
+  gender: {
+    type: String,
+    lowercase: true,
+    enum: ['male', 'female']
+  },
+  birth: {
+    type: Date,
+    default: null
+  },
+  created_at: {
+    type: Date,
+    default: Date.now()
+  },
+  updated_at: {
+    type: Date,
+    default: null
+  },
+  validation: {
+    type: String,
+    enum: ['pending', 'accepted', 'refused'],
+    default: 'pending'
+  },
+  location: String,
   provider: String,
-  salt: String
+  salt: String,
+
 });
 
 /**
@@ -51,6 +79,13 @@ UserSchema
 /**
  * Validations
  */
+
+// Validate empty name
+UserSchema
+  .path('name')
+  .validate(function(name) {
+    return name.length;
+  }, 'Name cannot be blank');
 
 // Validate empty email
 UserSchema
