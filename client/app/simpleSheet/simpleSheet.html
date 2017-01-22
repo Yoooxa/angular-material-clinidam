@@ -150,12 +150,12 @@
             </md-card-header>
             <div class="card-content">
               <span class="md-title" flex="100"> Souffrez vous du syndrome d'apnées/hypopnées obstructives du sommeil ?  </span>
-                        <div class="isi-table">
-                            <md-radio-group layout="column" ng-model="vm.sleepingSatisfaction">
-                                <md-radio-button class="md-primary" value="1">Oui</md-radio-button>
-                                <md-radio-button class="md-primary" value="2">Non</md-radio-button>
-                            </md-radio-group>
-                        </div><br>
+                <div class="isi-table">
+                    <md-radio-group layout="column" ng-model="vm.sleepingSatisfaction">
+                        <md-radio-button class="md-primary" value="1">Oui</md-radio-button>
+                        <md-radio-button class="md-primary" value="2">Non</md-radio-button>
+                    </md-radio-group>
+                </div><br>
                 <md-input-container class="md-block">
                     <label>Autres symptômes</label>
                     <textarea ng-model="vm.familialTextarea" md-maxlength="150" rows="5" md-select-on-focus></textarea>
@@ -1494,7 +1494,19 @@
               </md-card-header-text>
             </md-card-header>
             <div class="card-content">
-
+                <md-checkbox style="margin-bottom:0;">Bouche ouverte</md-checkbox><br>
+                <md-checkbox style="margin-bottom:0;">Bouche fermée</md-checkbox><br>
+                <md-checkbox style="margin-bottom:0;">ATM droite</md-checkbox><br>
+                <md-checkbox style="margin-bottom:0;">ATM gauche</md-checkbox><br>
+                <br>
+                <md-input-container>
+                    <label>Fréquence</label>
+                    <input required name="other" ng-model="vm.frequency">
+                </md-input-container>
+                <md-input-container>
+                    <label>Dernier épisode</label>
+                    <input required name="other" ng-model="vm.lastEpisode">
+                </md-input-container>
             </div>
           </div>
           <!-- End Card 21/22 -->
@@ -1520,7 +1532,20 @@
               </md-card-header-text>
             </md-card-header>
             <div class="card-content">
-
+              <span class="md-title" flex="100"> ATM droite :  </span>
+                <div class="isi-table">
+                    <md-radio-group layout="column" ng-model="vm.sleepingSatisfaction">
+                        <md-radio-button class="md-primary" value="1">Souple</md-radio-button>
+                        <md-radio-button class="md-primary" value="2">Raide</md-radio-button>
+                    </md-radio-group>
+                </div><br>
+                <span class="md-title" flex="100"> ATM gauche :  </span>
+                <div class="isi-table">
+                    <md-radio-group layout="column" ng-model="vm.sleepingSatisfaction">
+                        <md-radio-button class="md-primary" value="3">Souple</md-radio-button>
+                        <md-radio-button class="md-primary" value="4">Raide</md-radio-button>
+                    </md-radio-group>
+                </div><br>
             </div>
           </div>
           <!-- End Card 22/22 -->
