@@ -301,6 +301,7 @@
                         <md-button ng-click="vm.setPreviousCardNumber()" ng-if="vm.cardNumber > 1">Précédent</md-button>
                         <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 3">Suivant</md-button>
                         <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 3"> Voir PDF </md-button>
+                        <md-button ng-click="vm.downloadPdf()" ng-if="vm.cardNumber ==3"> Enregistrer PDF</md-button>
                     </md-card-actions>
                 </div>
             </md-card>

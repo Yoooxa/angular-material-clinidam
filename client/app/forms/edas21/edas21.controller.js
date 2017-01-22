@@ -36,6 +36,11 @@ class Edas21Component{
     pdfMake.createPdf(this.pdf).open();
   }
 
+  downloadPdf() {
+    this.createPdf();
+    pdfMake.createPdf(this.pdf).download();
+  }
+
   createPdf() {
 
     var date = new Date();
