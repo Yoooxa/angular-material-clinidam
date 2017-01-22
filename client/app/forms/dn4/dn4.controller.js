@@ -3,7 +3,7 @@
 (function(){
 
 class Dn4Component{
-    constructor() {
+    constructor($http) {
         this.answers = [
             {label: "Oui", value: 'OUI'},
             {label: "Non", value: 'NON'}
@@ -11,6 +11,7 @@ class Dn4Component{
         this.cardNumber = 1;
 
         this.form = {};
+        this.http = $http;
     }
 
     setPreviousCardNumber() {
@@ -118,6 +119,26 @@ class Dn4Component{
        };
 
       this.pdf =  docDefinition;
+  }
+
+  sendForm() {
+    this.submitted = true;
+    var $http = this.http;
+
+    var config = {};
+
+    $http.post('/api/formDn4', this.form, config)
+      .then(
+        function(response){
+          // success callback
+
+        },
+        function(error){
+          // failure callback
+          console.error(error);
+        }
+      );
+
   }
 }
 

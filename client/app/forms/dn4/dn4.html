@@ -165,6 +165,7 @@
                         <md-button ng-click="vm.setNextCardNumber()" ng-if="vm.cardNumber < 2">Suivant</md-button>
                         <md-button ng-click="vm.openPdf()" ng-if="vm.cardNumber == 2"> Voir PDF </md-button>
                         <md-button ng-click="vm.downloadPdf()" ng-if="vm.cardNumber == 2"> Enregistrer PDF </md-button>
+                        <button ng-click="vm.sendForm()"> Debug </button>
                     </md-card-actions>
                 </div>
             </md-card>
