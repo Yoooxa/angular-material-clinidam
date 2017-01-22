@@ -1,34 +1,40 @@
-<div ng-control layout="column" class="md-inline-form" flex="40" id="contact-form">
-  <md-toolbar>
-    <h2 class="md-toolbar-tools">{{ 'nous contacter' | uppercase }}</h2>
-  </md-toolbar>
-  <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-    <div>
-      <md-input-container>
-        <label>Nom</label>
-        <input ng-model="vm.lastname">
-      </md-input-container>
+<div layout="column" class="md-inline-form" flex="40" id="contact-form" >
+  <form class="form" name="contactForm" ng-submit="vm.sendMail(contactForm)" novalidate>
+      <md-toolbar style="width: 450px; margin: 0 auto;">
+        <h2 class="md-toolbar-tools">{{ 'nous contacter' | uppercase }}</h2>
+      </md-toolbar>
+      <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding style="width: 450px; margin: 0 auto">
+        <div>
+          <md-input-container>
+            <label>Nom</label>
+            <input ng-model="vm.lastname">
+          </md-input-container>
 
-      <md-input-container>
-        <label>Prénom</label>
-        <input ng-model="vm.firstname" type="email">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Adresse mail</label>
-        <input ng-model="vm.email" type="subject">
-      </md-input-container>
+          <md-input-container>
+            <label>Prénom</label>
+            <input ng-model="vm.firstname">
+          </md-input-container>
 
-      <md-input-container class="md-block">
-        <label>Sujet</label>
-        <input ng-model="vm.subject" type="subject">
-      </md-input-container>
-      <md-input-container class="md-block">
-        <label>Description</label>
-          <textarea ng-model="vm.description" md-maxlength="150" rows="5" md-select-on-focus></textarea> 
-      </md-input-container>
-    </div>
-  </md-content>
+          <md-input-container class="md-block">
+            <label>Adresse mail</label>
+            <input ng-model="vm.email" type="email">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Sujet</label>
+            <input ng-model="vm.subject" type="subject">
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Message</label>
+            <textarea ng-model="vm.message" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </div>
+      </md-content>
+      <section layout="row" layout-sm="column" layout-align="center center" id="contact-button" layout-wrap>
+        <md-button type="submit" class="md-raised md-primary">Envoyer</md-button>
+      </section>
+  </form>
 </div>
-  <section layout="row" layout-sm="column" layout-align="center center" id="contact-button" layout-wrap>
-    <md-button class="md-raised md-primary">Envoyer</md-button>
-</section>
+
+

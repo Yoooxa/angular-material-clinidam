@@ -2,30 +2,28 @@
 
 (function(){
 
-class ContactComponent {
-  constructor($http) {
-    this.submitted = false;
+class SupportComponent {
+  constructor($http, Auth) {
+    this.isLoggedIn = Auth.isLoggedIn;
+    this.isAdmin = Auth.isAdmin;
     this.http = $http;
   }
 
-  sendMail(form) {
-    this.submitted = true;
+  sendMailToSupport(form) {
+
     var $http = this.http;
 
     var data = ({
-      contactName : this.firstname + " " + this.lastname,
-      contactEmail : this.email,
       subject : this.subject,
       message : this.message
     });
 
     var config = {};
 
-    $http.post('/api/contact', data, config)
+    $http.post('/api/contact/support', data, config)
       .then(
         function(response){
-          // success callback
-
+          // success
         },
         function(error){
           // failure callback
@@ -37,9 +35,9 @@ class ContactComponent {
 }
 
 angular.module('angularMaterialClinidamApp')
-  .component('contact', {
-    templateUrl: 'app/contact/contact.html',
-    controller: ContactComponent,
+  .component('support', {
+    templateUrl: 'app/support/support.html',
+    controller: SupportComponent,
     controllerAs: 'vm'
   });
 
