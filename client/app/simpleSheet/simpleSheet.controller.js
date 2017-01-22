@@ -4,7 +4,15 @@
 
 class SimpleSheetComponent {
   constructor() {
-    this.message = 'Hello';
+    this.cardNumber = 1;
+  }
+  
+  setPreviousCardNumber() {
+      this.cardNumber --;
+  }
+
+  setNextCardNumber() {
+      this.cardNumber ++;
   }
 }
 
@@ -14,5 +22,4 @@ angular.module('angularMaterialClinidamApp')
     controller: SimpleSheetComponent,
     controllerAs: 'vm'
   });
-
 })();
