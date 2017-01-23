@@ -11,7 +11,7 @@
     </div>
     <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ng-show="!nav.isLoggedIn() && item.isVisibleByGuest || nav.isLoggedIn() && !nav.isAdmin() && item.isVisibleByUser || nav.isLoggedIn() &&nav.isAdmin()" ui-sref-active="active">
+        <li ng-repeat="item in nav.menu" ng-show="!nav.isLoggedIn() && item.isVisibleByGuest || nav.isLoggedIn() && !nav.isAdmin() && item.isVisibleByUser || nav.isLoggedIn() && nav.isAdmin() && item.sref != 'contact'" ui-sref-active="active">
           <!-- Without submenu -->
           <a ui-sref="{{item.sref}}" ng-hide="item.hassubmenu"> {{item.title}} </a>
 
@@ -31,8 +31,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <span>
+
+        </span>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Inscription</a></li>
-        <md-button class="md-raised md-primary" type="button" class="btn btn-success validation-button" ng-hide="nav.isLoggedIn()" ui-sref-active="active" ui-sref="login">Connexion</md-button>
+        <md-button class="md-raised md-primary" type="button" class="btn btn-success" ng-hide="nav.isLoggedIn()" ui-sref-active="active" ui-sref="login">Connexion</md-button>
         <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Bonjour {{ nav.getCurrentUser().name }} !</p> </li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Déconnexion</a></li>

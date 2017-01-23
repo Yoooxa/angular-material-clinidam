@@ -32,10 +32,34 @@
       var url = "/api/users/validation/" + data.userId;
 
       $http.post(url, data, config)
+      .then(
+        function(response){
+          // success callback
+          $state.reload();
+        },
+        function(error){
+          // failure callback
+          console.error(error);
+        }
+      );
+
+      this.sendValidationAccountMail(user);
+    }
+
+    sendValidationAccountMail(user) {
+      var $http = this.http;
+      var data = ({
+        email : user.email,
+        userId : user._id
+      });
+
+      var config = {};
+      var url = "/api/contact/validationMail/" + data.userId;
+      $http.post(url, data, config)
         .then(
           function(response){
             // success callback
-            $state.reload();
+
           },
           function(error){
             // failure callback
