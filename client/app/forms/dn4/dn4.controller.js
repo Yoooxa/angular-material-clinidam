@@ -122,12 +122,17 @@ class Dn4Component{
   }
 
   sendForm() {
-    this.submitted = true;
     var $http = this.http;
 
     var config = {};
 
-    $http.post('/api/formDn4', this.form, config)
+    var data = {
+      name: "Test",
+      info: "TestInfos",
+      active: true
+    }
+
+    $http.post('/api/formDn4', data, config)
       .then(
         function(response){
           // success callback
