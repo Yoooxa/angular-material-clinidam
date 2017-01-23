@@ -16,7 +16,7 @@
           <a ui-sref="{{item.sref}}" ng-hide="item.hassubmenu"> {{item.title}} </a>
 
           <!-- With submenu -->
-          <span uib-dropdown on-toggle="toggled(open)" ng-if="item.hassubmenu">
+          <span  style="margin-left: 10px; margin-right: 10px" uib-dropdown on-toggle="toggled(open)" ng-if="item.hassubmenu">
             <a href id="{{item.sref}}-dropdown" uib-dropdown-toggle>
               {{item.title}}
               <span class="caret"></span>
