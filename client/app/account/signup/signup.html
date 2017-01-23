@@ -9,8 +9,17 @@
       <div style="width: 500px">
         <md-input-container class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
-          <label>Nom</label>
-          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+        <label>Nom</label>
+        <input type="text" name="name" class="form-control" ng-model="vm.user.lastname"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+          A name is required
+        </p>
+      </md-input-container>
+        <md-input-container class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
+                                            'has-error': form.confirmPassword.$invalid && vm.submitted }">
+          <label>Prénom</label>
+          <input type="text" name="firstname" class="form-control" ng-model="vm.user.name"
                  required/>
           <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
             A name is required
