@@ -18,6 +18,7 @@ function onConnect(socket) {
 
   // Insert sockets below
   require('../api/contact/contact.socket').register(socket);
+  require('../api/formDn4/formDn4.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 
 }
