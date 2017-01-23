@@ -1,5 +1,5 @@
 <md-content class="md-padding" layout-xs="column" layout="row"  layout-wrap style="margin:0 auto;width: 950px;">
-  <div flex="33" ng-repeat="item in vm.menu" ng-show="!vm.isLoggedIn() && item.isVisibleByGuest || vm.isLoggedIn() && !vm.isAdmin() && item.isVisibleByUser || vm.isLoggedIn() &&vm.isAdmin()">
+  <div flex="33" ng-repeat="item in vm.menu" ng-show="!vm.isLoggedIn() && item.isVisibleByGuest || vm.isLoggedIn() && !vm.isAdmin() && item.isVisibleByUser || vm.isLoggedIn() &&vm.isAdmin() && item.sref != 'contact'">
       <md-card  style="height: 260px;">
         <img ng-src="{{item.picture}}" class="md-card-image">
         <md-card-title>
